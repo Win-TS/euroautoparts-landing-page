@@ -1,6 +1,6 @@
 import heroImage from '../assets/e60-ใต้เครื่อง.jpg'
 
-export function Hero() {
+export default function Hero() {
     return (
         <div className='bg-center w-screen h-80 md:h-96 flex flex-col md:flex-row bg-gradient-to-r from-gray-1 to-black-1 justify-center items-center'>
             <div className='px-4 md:px-28 flex flex-col justify-center md:w-1/2 md:text-left items-center md:items-start'>

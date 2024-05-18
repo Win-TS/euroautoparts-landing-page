@@ -19,6 +19,8 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Navbar />
-    <RouterProvider router={router} />
+    <div style={{ paddingTop: '77.32px' }}>
+      <RouterProvider router={router} />
+    </div>
   </React.StrictMode>,
 )
