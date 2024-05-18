@@ -5,15 +5,28 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+        colors: {
+          'black-1': '#1e1e1e',
+          'gray-1': '#3c3c3c',
+          'green-line': '#06c755',
+        },
+        fontFamily: {
+          'impact': ['Impact', 'sans-serif'],
+          'inter': ['Inter', 'sans-serif'],
+          'notothai': ['Noto Sans Thai', 'sans-serif'],
+          'lineseedsans': ['LINESeedSansTHRegular', 'sans-serif'],
+          'lineseedsans-bold': ['LINESeedSansTHBold', 'sans-serif'],
+        },
+    },
     screens: {
       '2xs': { min: '300px' },
-      xs: { max: '575px' }, // Mobile (iPhone 3 - iPhone XS Max).
-      sm: { min: '576px', max: '897px' }, // Mobile (matches max: iPhone 11 Pro Max landscape @ 896px).
-      md: { min: '898px', max: '1199px' }, // Tablet (matches max: iPad Pro @ 1112px).
-      lg: { min: '1200px' }, // Desktop smallest.
-      xl: { min: '1259px' }, // Desktop wide.
-      '2xl': { min: '1359px' } // Desktop widescreen.
+      'xs': { max: '575px' },
+      'sm': { min: '576px' },
+      'md': { min: '898px' },
+      'lg': { min: '1200px' },
+      'xl': { min: '1259px' },
+      '2xl': { min: '1359px' }
     },
   },
   plugins: [],

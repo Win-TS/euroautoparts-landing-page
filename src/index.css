@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'LINESeedSansTHRegular';
+    src: url(../static/fonts/LINESeedSansTH_A_Rg.ttf);
+}
+
+@font-face {
+    font-family: 'LINESeedSansTHBold';
+    src: url(../static/fonts/LINESeedSansTH_A_Bd.ttf);
+}
