@@ -9,9 +9,12 @@ export default function Hero() {
                 <h2 className='text-2xl text-center md:text-left md:text-4xl font-notothai text-red-600 font-bold'>BMW Benz MINI</h2>
                 <h3 className='text-xl text-center md:text-left md:text-2xl font-notothai text-yellow-300'>ภายใน ภายนอก ช่วงล่าง</h3>
                 <h3 className='text-xl text-center md:text-left md:text-2xl font-notothai text-yellow-300'>ราคาย่อมเยาว์ คุณภาพดี</h3>
-                <a href="https://line.me/R/ti/p/@902vqfcp?oat_content=url" target="_blank" rel="noopener noreferrer">
-                    <button className='bg-green-line text-white px-1 py-3 rounded-lg mt-2 font-lineseedsans w-72 truncate'>
-                        Add LINE Click: <span className='font-bold'>@euroautoparts</span>
+                <a href="https://line.me/R/ti/p/@902vqfcp?oat_content=url" target="_blank" rel="noopener noreferrer" className="pt-2">
+                    <button className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-green-line rounded hover:bg-white group py-2 px-3 w-72 border-solid border-2 border-green-line">
+                        <span className="absolute inset-0 bg-green-line transition duration-500 ease-in-out group-hover:bg-white"></span>
+                            <span className="relative w-full text-center text-white transition-colors duration-300 ease-in-out group-hover:text-green-line font-lineseedsans">
+                            Add LINE Click: <span className="font-bold">@euroautoparts</span>
+                        </span>
                     </button>
                 </a>
             </div>

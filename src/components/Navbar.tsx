@@ -1,15 +1,15 @@
-import { useState } from "react"
-import { Spin as Hamburger } from 'hamburger-react'
-import { Transition } from '@headlessui/react'
-import { BrowserRouter as Router, NavLink } from 'react-router-dom'
-import logo from '../assets/euroautoparts-logo.png'
+import { useState } from "react";
+import { Spin as Hamburger } from 'hamburger-react';
+import { Transition } from '@headlessui/react';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import logo from '../assets/euroautoparts-logo.png';
 
 export default function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen)
-    }
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return (
         <Router>
@@ -20,10 +20,20 @@ export default function Navbar() {
                         <Hamburger toggled={isMenuOpen} toggle={toggleMenu} size={25} />
                     </div>
                     <ul className='hidden md:flex space-x-10'>
-                        <li><NavLink to="/" className={({ isActive }) => isActive ? 'font-notothai font-bold' : 'font-notothai'}>หน้าหลัก/Home</NavLink></li>
-                        <li><NavLink to="/products" className={({ isActive }) => isActive ? 'font-notothai font-bold' : 'font-notothai'}>สินค้า/Products</NavLink></li>
-                        <li><NavLink to="/faq" className={({ isActive }) => isActive ? 'font-notothai font-bold' : 'font-notothai'}>คำถามที่พบบ่อย/FAQ</NavLink></li>
-                        <li><NavLink to="/contact" className={({ isActive }) => isActive ? 'font-notothai font-bold' : 'font-notothai'}>ติดต่อเรา/Contact</NavLink></li>
+                        {['/', '/products', '/faq', '/contact'].map((path, index) => {
+                            const labels = ['หน้าหลัก/Home', 'สินค้า/Products', 'คำถามที่พบบ่อย/FAQ', 'ติดต่อเรา/Contact'];
+                            return (
+                                <li key={index} className='relative group'>
+                                    <NavLink to={path} className={({ isActive }) => isActive ? 'font-notothai font-bold' : 'font-notothai'}>
+                                        <span className="relative">
+                                            {labels[index]}
+                                            <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-yellow-400 group-hover:w-3/6"></span>
+                                            <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-red-600 group-hover:w-3/6"></span>
+                                        </span>
+                                    </NavLink>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
                 <Transition
@@ -36,13 +46,23 @@ export default function Navbar() {
                     leaveTo="translate-x-full opacity-0"
                 >
                     <ul className="md:hidden fixed top-0 left-0 w-full bg-gray-400 pt-8 flex flex-col py-2" style={{ top: '77.32px', height: 'calc(100vh - 64px)' }}>
-                        <li className='py-4 text-center text-xl font-notothai'><NavLink to="/" className={({ isActive }) => isActive ? 'font-bold' : ''}>หน้าหลัก/Home</NavLink></li>
-                        <li className='py-4 text-center text-xl font-notothai'><NavLink to="/products" className={({ isActive }) => isActive ? 'font-bold' : ''}>สินค้า/Products</NavLink></li>
-                        <li className='py-4 text-center text-xl font-notothai'><NavLink to="/faq" className={({ isActive }) => isActive ? 'font-bold' : ''}>คำถามที่พบบ่อย/FAQ</NavLink></li>
-                        <li className='py-4 text-center text-xl font-notothai'><NavLink to="/contact" className={({ isActive }) => isActive ? 'font-bold' : ''}>ติดต่อเรา/Contact</NavLink></li>
+                        {['/', '/products', '/faq', '/contact'].map((path, index) => {
+                            const labels = ['หน้าหลัก/Home', 'สินค้า/Products', 'คำถามที่พบบ่อย/FAQ', 'ติดต่อเรา/Contact'];
+                            return (
+                                <li key={index} className='py-4 text-center text-xl font-notothai relative group'>
+                                    <NavLink to={path} className={({ isActive }) => isActive ? 'font-bold' : ''}>
+                                        <span className="relative">
+                                            {labels[index]}
+                                            <span className="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-yellow-400 group-hover:w-3/6"></span>
+                                            <span className="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-red-600 group-hover:w-3/6"></span>
+                                        </span>
+                                    </NavLink>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </Transition>
             </nav>
         </Router>
-    )
+    );
 }
