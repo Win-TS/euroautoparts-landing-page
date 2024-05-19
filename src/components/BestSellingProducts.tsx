@@ -14,14 +14,14 @@ const products = [
 export default function BestSellingProducts() {
 
     const slideLeft = () => {
-        var slider = document.getElementById("slider");
+        let slider = document.getElementById("slider");
         if (slider) {
             slider.scrollLeft = slider.scrollLeft - 275;
         }
     };
     
     const slideRight = () => {
-        var slider = document.getElementById("slider");
+        let slider = document.getElementById("slider");
         if (slider) {
             slider.scrollLeft = slider.scrollLeft + 275;
         }
