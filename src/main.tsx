@@ -1,25 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Home from './pages/Home.tsx'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css'
 import Navbar from './components/Navbar.tsx';
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-]);
+import Product from './pages/Product.tsx';
+import FAQ from './pages/FAQ.tsx';
+import Contact from './pages/Contact.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Navbar />
-    <div style={{ paddingTop: '77.32px' }}>
-      <RouterProvider router={router} />
-    </div>
+    
+    <Router>
+      <Navbar />
+        <div style={{ paddingTop: '77.32px' }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Product />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+    </Router>
   </React.StrictMode>,
 )

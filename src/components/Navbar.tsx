@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Spin as Hamburger } from 'hamburger-react';
 import { Transition } from '@headlessui/react';
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { BrowserRouter as _Router, NavLink } from 'react-router-dom';
 import logo from '../assets/euroautoparts-logo.png';
 
 export default function Navbar() {
@@ -12,7 +12,6 @@ export default function Navbar() {
     };
 
     return (
-        <Router>
             <nav className='py-3 px-5 z-50 bg-white fixed w-full'>
                 <div className='flex items-center justify-between'>
                     <img src={logo} width={200} className='z-50' />
@@ -63,6 +62,5 @@ export default function Navbar() {
                     </ul>
                 </Transition>
             </nav>
-        </Router>
     );
 }
