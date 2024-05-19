@@ -1,5 +1,6 @@
-import heroImage from '../assets/e60-ใต้เครื่อง.jpg';
+//import heroImage from '../assets/e60-ใต้เครื่อง.jpg';
 import Reveal from '../animations/Reveal';
+import  Carousel  from '../animations/Caurosel';
 
 export default function Hero() {
     return (
@@ -24,7 +25,7 @@ export default function Hero() {
                 </Reveal>
             </div>
             <div className='hidden md:flex md:w-1/2 w-full h-96 justify-center items-center'>
-                <img src={heroImage} className='w-72 h-72 object-contain rounded-lg' alt='Hero' />
+                <Carousel />
             </div>
         </div>
     );
