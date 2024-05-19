@@ -26,7 +26,8 @@ export default {
       'md': { min: '898px' },
       'lg': { min: '1200px' },
       'xl': { min: '1259px' },
-      '2xl': { min: '1359px' }
+      '2xl': { min: '1359px' },
+      '3xl': { min: '1650px' }
     },
   },
   plugins: [],
