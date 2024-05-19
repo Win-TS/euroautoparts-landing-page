@@ -1,5 +1,6 @@
 import Reveal from '../animations/Reveal';
 import exImage from '../assets/e60-ใต้เครื่อง.jpg';
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
 const products = [
     { productName: "ใต้เครื่อง E60", productPrice: 1450, productImage: exImage, type: "อะไหล่ภายนอก", description: "แผ่นปิดใต้ท้อง" },
@@ -36,7 +37,7 @@ export default function BestSellingProducts() {
                 </div>
             </Reveal>
             <Reveal>
-                <div className="flex justify-center items-center space-x-8">
+                <div className="flex justify-center items-center space-x-12">
                     <h1 className="text-lg font-notothai text-center pb-2 font-bold">
                         <span className="inline-block w-2.5 h-2.5 rounded-full mr-2 bg-red-500 font-bold"></span>
                         อะไหล่ภายนอก
@@ -53,25 +54,19 @@ export default function BestSellingProducts() {
             </Reveal>
             <Reveal>
                 <div className="relative">
-                    <button
-                        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-500 text-white p-2 rounded-full"
-                        onClick={slideLeft}
-                    >
-                        &#8249;
-                    </button>
-                    <div id="slider" className="overflow-x-auto flex space-x-5 scroll-pl-7 pl-7 scroll-smooth whitespace-nowrap">
+                    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black/20 text-white p-2 rounded-full cursor-pointer">
+                        <BsChevronCompactLeft onClick={slideLeft} size={30} />
+                    </div>
+                    <div id="slider" className="overflow-x-auto flex space-x-5 scroll-pl-14 pl-14 scroll-smooth whitespace-nowrap">
                         {products.map((product, index) => (
                             <div key={index} className="snap-start hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                                 <ProductCard {...product} />
                             </div>
                         ))}
                     </div>
-                    <button
-                        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-500 text-white p-2 rounded-full"
-                        onClick={slideRight}
-                    >
-                        &#8250;
-                    </button>
+                    <div className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black/20 text-white p-2 rounded-full cursor-pointer">
+                        <BsChevronCompactRight onClick={slideRight} size={30} />
+                    </div>
                 </div>
             </Reveal>
         </div>
@@ -97,13 +92,13 @@ function ProductCard({ productName, productPrice, productImage, type, descriptio
 
     return (
         <div className="bg-white rounded-lg shadow-lg p-5 w-64 h-96 flex flex-col justify-between">
-            <div className="flex justify-center items-center mb-2">
+            <div className="flex justify-center items-center mb-2 pt-4">
                 <img src={productImage} alt={productName} className="w-48 h-48 object-contain" />
             </div>
             <div className="flex flex-col items-center space-y-3">
                 <h1 className="text-xl font-bold font-notothai text-center">{productName}</h1>
                 <h2 className="text-lg font-notothai text-center">{productPrice} บาท</h2>
-                <p className="text-lg font-notothai text-center flex items-center justify-center">
+                <p className="text-lg font-notothai text-center flex items-center justify-center pb-2">
                     <span className={`w-2.5 h-2.5 rounded-full mr-2 ${markerColor}`}></span>
                     {type} {description}
                 </p>
