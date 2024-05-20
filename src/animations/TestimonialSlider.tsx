@@ -33,7 +33,7 @@ export default function TestimonialSlider() {
             <motion.div
                 className="flex space-x-5"
                 animate={{
-                    x: ['-100%', '0%'],
+                    x: ['0%', '-100%'],
                     transition: {
                         ease: 'linear',
                         duration: 20,
@@ -61,10 +61,10 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ review, channel }: TestimonialCardProps) {
     return (
-        <div className="bg-gray-200 rounded-lg shadow-lg p-5 w-60 h-72 flex flex-col justify-between">
+        <div className="bg-gray-200 rounded-lg shadow-lg p-5 w-56 h-64 md:w-60 md:h-72 flex flex-col justify-between">
             <RiDoubleQuotesL className="text-red-400 text-4xl opacity-75" />
-            <p className="text-2xl font-notothai">{`"${review}"`}</p>
-            <p className="text-lg text-right font-notothai">{`คุณลูกค้าทาง ${channel}`}</p>
+            <p className="text-xl md:text-2xl font-notothai">{`"${review}"`}</p>
+            <p className="text-md md:text-lg text-right font-notothai">{`คุณลูกค้าทาง ${channel}`}</p>
         </div>
     )
 }
