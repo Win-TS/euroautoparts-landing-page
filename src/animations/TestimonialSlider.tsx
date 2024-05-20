@@ -28,29 +28,29 @@ export default function TestimonialSlider() {
     const duplicatedReviews = [...reviews, ...reviews];
 
     return (
-<div className="relative content-center mr-6 w-full md:w-2/3 overflow-hidden rounded-lg">
-    <div className="hover:overflow-x-auto">
-        <motion.div
-            className="flex space-x-5"
-            animate={{
-                x: ['-100%', '0%'],
-                transition: {
-                    ease: 'linear',
-                    duration: 20,
-                    repeat: Infinity,
-                }
-            }}
-        >
-            {duplicatedReviews.map((review, index) => (
-                <div key={index}>
-                    <div className="flex flex-col items-center">
-                        <TestimonialCard review={review.review} channel={review.channel} />
+    <div className="relative content-center w-full md:w-2/3 overflow-hidden rounded-lg md:basis-2/3">
+        <div className="hover:overflow-x-auto">
+            <motion.div
+                className="flex space-x-5"
+                animate={{
+                    x: ['-100%', '0%'],
+                    transition: {
+                        ease: 'linear',
+                        duration: 20,
+                        repeat: Infinity,
+                    }
+                }}
+            >
+                {duplicatedReviews.map((review, index) => (
+                    <div key={index}>
+                        <div className="flex flex-col items-center">
+                            <TestimonialCard review={review.review} channel={review.channel} />
+                        </div>
                     </div>
-                </div>
-            ))}
-        </motion.div>
+                ))}
+            </motion.div>
+        </div>
     </div>
-</div>
     )
 }
 
