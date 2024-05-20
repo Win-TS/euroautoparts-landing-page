@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Spin as Hamburger } from 'hamburger-react';
 import { Transition } from '@headlessui/react';
-import { BrowserRouter as _Router, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/euroautoparts-logo.png';
 
 export default function Navbar() {
@@ -48,7 +48,7 @@ export default function Navbar() {
                         {['/', '/products', '/faq', '/contact'].map((path, index) => {
                             const labels = ['หน้าหลัก/Home', 'สินค้า/Products', 'คำถามที่พบบ่อย/FAQ', 'ติดต่อเรา/Contact'];
                             return (
-                                <li key={index} className='py-4 text-center text-xl font-notothai relative group'>
+                                <li key={index} className='py-4 text-center text-xl font-notothai relative group' onClick={toggleMenu}>
                                     <NavLink to={path} className={({ isActive }) => isActive ? 'font-bold' : ''}>
                                         <span className="relative">
                                             {labels[index]}

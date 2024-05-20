@@ -29,7 +29,7 @@ export default function BestSellingProducts() {
     };
 
     return (
-        <div className="bg-slate-300 p-5 border border-y-gray-500">
+        <div className="bg-gray-300 p-5 border border-y-gray-500">
             <Reveal>
                 <div className="justify-center items-center pb-3">
                     <h1 className="text-2xl font-bold text-center font-notothai">สินค้าขายดี</h1>
@@ -37,7 +37,7 @@ export default function BestSellingProducts() {
                 </div>
             </Reveal>
             <Reveal>
-                <div className="flex justify-center items-center space-x-12">
+                <div className="flex justify-center items-center space-x-12 pb-2">
                     <h1 className="text-lg font-notothai text-center pb-2 font-bold">
                         <span className="inline-block w-2.5 h-2.5 rounded-full mr-2 bg-red-500 font-bold"></span>
                         อะไหล่ภายนอก
@@ -57,7 +57,7 @@ export default function BestSellingProducts() {
                     <div className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black/20 text-white p-2 rounded-full cursor-pointer">
                         <BsChevronCompactLeft onClick={slideLeft} size={30} />
                     </div>
-                    <div id="slider" className="overflow-x-auto flex space-x-5 scroll-pl-14 pl-14 scroll-smooth whitespace-nowrap">
+                    <div id="slider" className="overflow-x-hidden hover:overflow-x-auto flex space-x-5 scroll-pl-14 pl-14 scroll-smooth whitespace-nowrap ">
                         {products.map((product, index) => (
                             <div key={index} className="snap-start hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                                 <ProductCard {...product} />

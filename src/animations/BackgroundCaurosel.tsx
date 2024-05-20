@@ -39,7 +39,7 @@ export default function BackgroundCarousel({ children }: CarouselProps) {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  });
 
   return (
     <div className="w-full h-full relative overflow-hidden">
