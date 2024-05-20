@@ -29,7 +29,7 @@ export default function BestSellingProducts() {
     };
 
     return (
-        <div className="bg-gray-300 p-5 border border-y-gray-500">
+        <div className="bg-gray-300 p-5">
             <Reveal>
                 <div className="justify-center items-center pb-3">
                     <h1 className="text-2xl font-bold text-center font-notothai">สินค้าขายดี</h1>

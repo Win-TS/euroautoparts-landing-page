@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Footer() {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 border-t border-black justify-items-center'>
+        <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center'>
             <div className="grid items-center h-28 md:h-56">
                 <div className="text-center content-center justify-center align-center">
                     <img src={logo} className="w-80"></img>
