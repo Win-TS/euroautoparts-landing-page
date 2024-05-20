@@ -29,7 +29,7 @@ export default function TestimonialSlider() {
 
     return (
     <div className="relative content-center w-full md:w-2/3 overflow-hidden rounded-lg md:basis-2/3">
-        <div className="hover:overflow-x-auto">
+        <div>
             <motion.div
                 className="flex space-x-5"
                 animate={{

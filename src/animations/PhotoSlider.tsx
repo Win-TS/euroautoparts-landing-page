@@ -19,19 +19,19 @@ export default function PhotoSlider() {
         },
       ];
 
-      const duplicateSlides = [...slides, ...slides];
+      const duplicateSlides = [...slides, ...slides, ...slides];
 
     return (
         <div>
-            <div className="relative content-center overflow-hidden w-full rounded-lg pb-5">
-                <div className="hover:overflow-x-auto">
+            <div className="relative content-center overflow-hidden w-full pb-5">
+                <div>
                     <motion.div
                         className="flex space-x-5"
                         animate={{
-                            x: ['-100%', '0%'],
+                            x: ['0%', '-100%'],
                             transition: {
                                 ease: 'linear',
-                                duration: 20,
+                                duration: 30,
                                 repeat: Infinity,
                             }
                         }}

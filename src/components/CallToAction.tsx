@@ -32,9 +32,9 @@ export default function CallToAction() {
                         <h1 className="text-2xl font-bold font-notothai">หรือเป็นตัวแทนจำหน่าย</h1>
                     </div>
                     <form className="pt-4 mx-auto md:mx-0">
-                        <input type="text" placeholder="ชื่ออู่/ร้าน" className="block w-64 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400" />
-                        <input type="text" placeholder="อีเมล/LINE" className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400" />
-                        <input type="text" placeholder="เบอร์โทรศัพท์" className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400" />
+                        <input type="text" placeholder="ชื่ออู่/ร้าน" className="block w-64 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" />
+                        <input type="text" placeholder="อีเมล/LINE" className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" />
+                        <input type="text" placeholder="เบอร์โทรศัพท์" className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" />
                     </form>
                     <button className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-sky-400 rounded hover:indigo-600 group py-2 px-3 w-64 mt-4">
                         <span className="absolute inset-0 bg-sky-400 transition duration-500 ease-in-out group-hover:bg-indigo-400"></span>
