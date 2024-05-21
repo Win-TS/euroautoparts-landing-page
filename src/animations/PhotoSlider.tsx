@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 export default function PhotoSlider() {
     const slides = [
         {
@@ -19,33 +17,15 @@ export default function PhotoSlider() {
         },
       ];
 
-      const duplicateSlides = [...slides, ...slides, ...slides];
-
-    return (
-        <div>
-            <div className="relative content-center overflow-hidden w-full pb-5">
-                <div>
-                    <motion.div
-                        className="flex space-x-5"
-                        animate={{
-                            x: ['0%', '-100%'],
-                            transition: {
-                                ease: 'linear',
-                                duration: 30,
-                                repeat: Infinity,
-                            }
-                        }}
-                    >
-                        {duplicateSlides.map((slide, index) => (
-                            <div key={index} className="flex-shrink-0 w-80">
-                                <div className="flex flex-col items-center h-full">
-                                    <img src={slide.url} className="h-full w-full object-cover rounded-lg" />
-                                </div>
-                            </div>
-                        ))}
-                    </motion.div>
+      return (
+            <div className="pb-5 px-3">
+                <div className="flex gap-x-3 snap-x overflow-x-hidden hover:overflow-x-auto w-full scroll-pl-10">
+                    {slides.map((slide, index) => (
+                        <div key={index} className="flex-shrink-0 snap-center">
+                            <img src={slide.url} className="rounded-lg h-72 min-w-full object-cover" />
+                        </div>
+                    ))}
                 </div>
             </div>
-        </div>
-    )
+    );
 }

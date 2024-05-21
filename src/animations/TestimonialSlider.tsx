@@ -31,7 +31,7 @@ export default function TestimonialSlider() {
     <div className="relative content-center w-full md:w-2/3 overflow-hidden rounded-lg md:basis-2/3">
         <div>
             <motion.div
-                className="flex space-x-5"
+                className="flex gap-40 md:gap-28"
                 animate={{
                     x: ['0%', '-100%'],
                     transition: {
@@ -42,8 +42,8 @@ export default function TestimonialSlider() {
                 }}
             >
                 {duplicatedReviews.map((review, index) => (
-                    <div key={index}>
-                        <div className="flex flex-col items-center">
+                    <div key={index} style={{ width: `${100 / reviews.length}%` }}>
+                        <div className="flex flex-col items-center justify-center">
                             <TestimonialCard review={review.review} channel={review.channel} />
                         </div>
                     </div>

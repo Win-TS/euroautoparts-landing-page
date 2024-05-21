@@ -75,4 +75,4 @@ function TypeCard({ type, cars, description, className }: TypeCardProps) {
           </div>
         </div>
       );
-  };
+}
