@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaAngleDown } from "react-icons/fa6";
 
 interface AccordionProps {
     question: string;
     answer: string;
 }
 
-export default function Accordion({question, answer}: AccordionProps) {
+export default function Accordion({ question, answer }: AccordionProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleAccordion = () => {
@@ -14,24 +15,31 @@ export default function Accordion({question, answer}: AccordionProps) {
     }
 
     return (
-        <div className="m-4 bg-white">
-            <div className="py-5 px-10 flex justify-between items-center cursor-pointer rounded-lg" onClick={toggleAccordion}>
+        <div className="m-4 rounded-lg overflow-hidden border border-gray-300">
+             <div className="py-5 px-10 flex justify-between items-center cursor-pointer transition duration-300 ease-in-out bg-amber-100 hover:bg-amber-200" onClick={toggleAccordion}>
                 <p className="text-lg font-notothai font-bold">{question}</p>
-                <div className="text-xl font-notothai">
-                    {isOpen ? "-" : "+"}
-                </div>
+                <motion.div
+                    className="texl-lg md:text-xl font-notothai"
+                    animate={{ rotate: isOpen ? -180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <FaAngleDown />
+                </motion.div>
             </div>
 
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mx-10"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        style={{ overflow: 'hidden' }}
+                        className="px-10"
                     >
-                        <p className="text-lg font-notothai">{answer}</p>
+                        <div className="py-5">
+                            <p className="text-md md:text-lg font-notothai">{answer}</p>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

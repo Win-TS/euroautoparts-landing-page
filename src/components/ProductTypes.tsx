@@ -11,7 +11,7 @@ export default function ProductTypes() {
                     <h1 className="text-2xl font-notothai font-bold text-center">Product Types</h1>
                 </div>
             </Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-4 gap-3 md:gap-5 3xl:gap-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-4 gap-3 md:gap-5 3xl:gap-1 pb-2">
                 <Reveal className="place-self-center md:place-self-end 3xl:place-self-center">
                     <TypeCard type="แผ่นปิดใต้ท้องรถ" cars="BMW, Benz, MINI" description="test" />
                 </Reveal>
