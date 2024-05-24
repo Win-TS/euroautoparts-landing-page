@@ -10,13 +10,13 @@ export default function CallToAction() {
         phone: ""
     });
 
-    const handleChange = (e: { target: { name: any; value: any; }; }) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setData({
             ...data,
             [name]: value
         });
-    };
+    };    
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
