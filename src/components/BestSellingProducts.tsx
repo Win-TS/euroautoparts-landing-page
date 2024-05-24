@@ -13,7 +13,6 @@ const products = [
 ];
 
 export default function BestSellingProducts() {
-
     const slideLeft = () => {
         const slider = document.getElementById("slider");
         if (slider) {
@@ -57,9 +56,9 @@ export default function BestSellingProducts() {
                     <div className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black/20 text-white p-2 rounded-full cursor-pointer">
                         <BsChevronCompactLeft onClick={slideLeft} size={30} />
                     </div>
-                    <div id="slider" className="overflow-x-hidden hover:overflow-x-auto flex space-x-5 scroll-pl-14 pl-14 scroll-smooth whitespace-nowrap ">
+                    <div id="slider" className="overflow-x-auto flex space-x-5 scroll-pl-14 pl-14 scroll-smooth whitespace-nowrap">
                         {products.map((product, index) => (
-                            <div key={index} className="snap-start hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+                            <div key={index} className="hover:shadow-2xl transition-shadow duration-300 ease-in-out">
                                 <ProductCard {...product} />
                             </div>
                         ))}

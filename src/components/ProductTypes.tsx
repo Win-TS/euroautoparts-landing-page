@@ -13,16 +13,16 @@ export default function ProductTypes() {
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-4 gap-3 md:gap-5 3xl:gap-1 pb-2">
                 <Reveal className="place-self-center md:place-self-end 3xl:place-self-center">
-                    <TypeCard type="แผ่นปิดใต้ท้องรถ" cars="BMW, Benz, MINI" description="test" />
+                    <TypeCard type="แผ่นปิดใต้ท้องรถ" cars="BMW, Benz, MINI" description="ช่วยป้องกันการกระแทกของสิ่งต่างๆจากพื้นถนน, ช่วยระบายความร้อนภายใต้ตัวรถรวมถึงสามารถช่วยลดแรงเสียดทานของอากาศส่งผลให้ประหยัดน้ำมันมากขึ้น" />
                 </Reveal>
                 <Reveal className="place-self-center md:place-self-start 3xl:place-self-center">
-                    <TypeCard type="พลาสติกซุ้มล้อ" cars="BMW, Benz, MINI" description="test" />
+                    <TypeCard type="พลาสติกซุ้มล้อ" cars="BMW, Benz, MINI" description="ช่วยป้องกันสิ่งสกปรก เช่น เศษ หิน ดิน โคลน และ ของเหลว จากภายนอกไม่ให้เข้ามาติดกับช่วงล่างของรถยนต์ รวมถึงยังช่วยป้องกันความเสียหายจากเศษหินที่จะเกิดขึ้นกับรถยนต์ได้ด้วย" />
                 </Reveal>
                 <Reveal className="place-self-center md:place-self-end 3xl:place-self-center">
-                    <TypeCard type="ช่วงล่าง ประเภทปีกนก ลูกหมาก" cars="BMW, Benz, MINI" description="test" />
+                    <TypeCard type="ช่วงล่าง ประเภทปีกนก ลูกหมาก" cars="BMW, Benz, MINI" description="ปีกนกเป็นระบบรองรับแรงสะเทือนซึ่งปกติจะติดตั้งไว้ใกล้กับแกนล้อโดยจะใช้ลูกหมากเป็นตัวเชื่อมต่อและทำให้ปีกนกสามารถรับการเคลื่อนไหวของรถได้ เมื่อใช้ของเดิมไปในระยะเวลานานๆ ตัวช่วงล่างจะเสื่อสภาพและเริ่มมีเสียงและกระแทกขณะขับขี่ การเปลี่ยนปีกนกและลูกหมากจะทำให้รถยนต์มีเสียงจากช่วงล่างน้อยลงและรู้สึกขับได้สบายยิ่งขึ้น" />
                 </Reveal>
                 <Reveal className="place-self-center md:place-self-start 3xl:place-self-center">
-                    <TypeCard type="อะไหล่ภายใน" cars="BMW" description="test" />
+                    <TypeCard type="อะไหล่ภายใน" cars="BMW" description="มือจับประตู กรอบแอร์ และอุปกรณ์ภายในต่างๆของ BMW เมื่อใช้ไปสักระยะเวลาหนึ่งจะเริ่มเหนียวติดมือ หัก กรอบ หรือลอก สินค้าทางร้านเราขายอะไหล่ภายในที่เป็นวัสดุชนิดที่จะไม่เหนียว กรอบ หักในอนาคตแต่เกรดเทียบกับของแท้ได้เลย" />
                 </Reveal>
             </div>
         </div>
@@ -59,7 +59,7 @@ function TypeCard({ type, cars, description, className }: TypeCardProps) {
           <div className={`fixed inset-0 z-10 overflow-hidden flex items-center justify-center transition-opacity duration-300 ${modalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75" onClick={toggleModal}></div>
             {modalOpen && (
-              <div className="bg-white rounded-lg shadow-xl w-4/5 z-50 relative flex flex-col h-2/3 md:h-1/2">
+              <div className="bg-white rounded-lg shadow-xl w-4/5 md:w-3/5 z-50 relative flex flex-col h-2/3 md:h-1/2">
                 <div className="bg-amber-200 text-black px-4 py-4 flex justify-between items-center rounded-t-lg">
                   <h2 className="text-2xl font-semibold font-notothai">{`${type} ${cars}`}</h2>
                   <button onClick={toggleModal} className="text-black">

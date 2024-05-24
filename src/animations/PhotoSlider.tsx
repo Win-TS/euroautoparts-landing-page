@@ -22,7 +22,7 @@ export default function PhotoSlider() {
                 <div className="flex gap-x-3 snap-x overflow-x-hidden hover:overflow-x-auto w-full scroll-pl-10">
                     {slides.map((slide, index) => (
                         <div key={index} className="flex-shrink-0 snap-center">
-                            <img src={slide.url} className="rounded-lg h-72 min-w-full object-cover" />
+                            <img src={slide.url} className="rounded-lg h-52 md:h-72 min-w-full object-cover" />
                         </div>
                     ))}
                 </div>

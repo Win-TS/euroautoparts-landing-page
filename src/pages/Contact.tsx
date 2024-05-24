@@ -30,7 +30,7 @@ export default function Contact() {
                         </div>
                         <div className="my-4">
                             <p className="text-lg font-semibold font-notothai flex items-center flex-wrap">
-                                <FaFacebook className="mr-2 text-blue-800" /> เพจเฟสบุค/Facebook Page
+                                <FaFacebook className="mr-2 text-blue-800" /> เฟซบุ๊ก/Facebook
                                 <span className="ml-2 text-gray-700">: <a href="https://www.facebook.com/EuroAutoPartsTH" target="_blank" rel="noopener noreferrer" className="hover:text-blue-800 underline">EuroAutoParts</a></span>
                             </p>
                         </div>
