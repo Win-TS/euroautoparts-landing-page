@@ -1,6 +1,66 @@
-import Reveal from "../animations/Reveal"
+import { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import Reveal from "../animations/Reveal";
 
 export default function CallToAction() {
+    const [data, setData] = useState({
+        name: "",
+        contact: "",
+        phone: ""
+    });
+
+    const handleChange = (e: { target: { name: any; value: any; }; }) => {
+        const { name, value } = e.target;
+        setData({
+            ...data,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        const newLead = {
+            name: data.name,
+            contact: data.contact,
+            phone: data.phone
+        };
+        axios({
+            method: "POST",
+            baseURL: import.meta.env.VITE_API_URL,
+            url: "/sheets/lead",
+            data: newLead
+        })
+        .then(response => {
+            console.log(response.status, response.data);
+            Swal.fire({
+                title: "<span class='font-notothai font-semibold'>ขอบคุณสำหรับความสนใจ!</span>",
+                html: "<span class='font-notothai'>ทางร้านจะตอบกลับโดยเร็วที่สุดครับ</span>",
+                icon: "success"
+            });
+            setData({
+                name: "",
+                contact: "",
+                phone: ""
+            });
+        }).catch((error) => {
+            console.log(error);
+            if (error.response && error.response.status === 400) {
+                Swal.fire({
+                    title: "<span class='font-notothai font-semibold'>ข้อมูลไม่ถูกต้อง!</span>",
+                    html: "<span class='font-notothai'>โปรดตรวจสอบข้อมูลและลองใหม่อีกครั้งครับ</span>",
+                    icon: "error"
+                });
+            } else {
+                Swal.fire({
+                    title: "<span class='font-notothai font-semibold'>เกิดข้อผิดพลาด!</span>",
+                    html: "<span class='font-notothai'>โปรดลองกรอกใหม่ หรือติดต่อทางร้านโดยตรงได้เลยครับ</span>",
+                    icon: "error"
+                });
+            }
+        });
+    };
+
     return (
         <div>
             <div className="flex flex-col md:flex-row bg-gray-300 justify-evenly">
@@ -31,18 +91,42 @@ export default function CallToAction() {
                         <h1 className="text-2xl font-bold font-notothai">อู่สนใจรับสินค้าราคาพิเศษ</h1>
                         <h1 className="text-2xl font-bold font-notothai">หรือเป็นตัวแทนจำหน่าย</h1>
                     </div>
-                    <form className="pt-4 mx-auto md:mx-0">
-                        <input type="text" placeholder="ชื่ออู่/ร้าน" className="block w-64 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" />
-                        <input type="text" placeholder="อีเมล/LINE" className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" />
-                        <input type="text" placeholder="เบอร์โทรศัพท์" className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" />
+                    <form className="pt-4 mx-auto md:mx-0" onSubmit={handleSubmit}>
+                        <input 
+                            type="text" 
+                            name="name" 
+                            value={data.name} 
+                            onChange={handleChange} 
+                            placeholder="ชื่ออู่/ร้าน" 
+                            className="block w-64 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" 
+                        />
+                        <input 
+                            type="text" 
+                            name="contact" 
+                            value={data.contact} 
+                            onChange={handleChange} 
+                            placeholder="อีเมล/LINE" 
+                            className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" 
+                        />
+                        <input 
+                            type="text" 
+                            name="phone" 
+                            value={data.phone} 
+                            onChange={handleChange} 
+                            placeholder="เบอร์โทรศัพท์" 
+                            className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" 
+                        />
+                        <button 
+                            type="submit" 
+                            className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-sky-400 rounded hover:indigo-600 group py-2 px-3 w-64 mt-4">
+                            <span className="absolute inset-0 bg-sky-400 transition duration-500 ease-in-out group-hover:bg-indigo-400"></span>
+                            <span className="relative w-full text-center font-notothai">ส่ง</span>
+                        </button>
                     </form>
-                    <button className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-sky-400 rounded hover:indigo-600 group py-2 px-3 w-64 mt-4">
-                        <span className="absolute inset-0 bg-sky-400 transition duration-500 ease-in-out group-hover:bg-indigo-400"></span>
-                        <span className="relative w-full text-center font-notothai">ส่ง</span>
-                    </button>
+                    
                 </div>
                 </Reveal>
             </div> 
         </div>
-    )
+    );
 }
