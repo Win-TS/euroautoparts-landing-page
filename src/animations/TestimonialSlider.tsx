@@ -1,70 +1,77 @@
-import { RiDoubleQuotesL } from "react-icons/ri";
-import { motion } from "framer-motion";
+import Lazada1 from '../assets/testimonials/lazada-1.jpeg';
+import Lazada2 from '../assets/testimonials/lazada-2.jpeg';
+import Lazada3 from '../assets/testimonials/lazada-3.jpeg';
+import Lazada4 from '../assets/testimonials/lazada-4.jpeg';
+import Lazada5 from '../assets/testimonials/lazada-5.jpeg';
+import Lazada6 from '../assets/testimonials/lazada-6.jpeg';
+import Lazada7 from '../assets/testimonials/lazada-7.jpeg';
+import Shopee1 from '../assets/testimonials/shopee-1.jpeg';
+import Shopee2 from '../assets/testimonials/shopee-2.jpeg';
+import Shopee3 from '../assets/testimonials/shopee-3.jpeg';
+import Shopee4 from '../assets/testimonials/shopee-4.jpeg';
+import Shopee5 from '../assets/testimonials/shopee-5.jpeg';
+import Shopee6 from '../assets/testimonials/shopee-6.jpeg';
+import Fb1 from '../assets/testimonials/fb-review-1.jpeg';
+import Fb2 from '../assets/testimonials/fb-review-2.jpeg';
 
 export default function TestimonialSlider() {
-    const reviews = [
+    const slides = [
         {
-            review: "งานมือจับเนี๊ยบมาก เข้ารูป สีตรง ใส่ได้แทนของเดิมดีมากเลยค่ะ",
-            channel: "FB Page"
+            url: Lazada1,
         },
         {
-            review: "งานมือจับเนี๊ยบมาก เข้ารูป สีตรง ใส่ได้แทนของเดิมดีมากเลยค่ะ",
-            channel: "FB Page"
+            url: Shopee1,
         },
         {
-            review: "งานมือจับเนี๊ยบมาก เข้ารูป สีตรง ใส่ได้แทนของเดิมดีมากเลยค่ะ",
-            channel: "FB Page"
+            url: Lazada2,
         },
         {
-            review: "งานมือจับเนี๊ยบมาก เข้ารูป สีตรง ใส่ได้แทนของเดิมดีมากเลยค่ะ",
-            channel: "FB Page"
+            url: Shopee2,
         },
         {
-            review: "งานมือจับเนี๊ยบมาก เข้ารูป สีตรง ใส่ได้แทนของเดิมดีมากเลยค่ะ",
-            channel: "FB Page"
+            url: Lazada3,
         },
-    ]
-
-    const duplicatedReviews = [...reviews, ...reviews];
+        {
+            url: Lazada4,
+        },
+        {
+            url: Shopee3,
+        },
+        {
+            url: Fb1,
+        },
+        {
+            url: Lazada5,
+        },
+        {
+            url: Shopee4,
+        },
+        {
+            url: Lazada6,
+        },
+        {
+            url: Lazada7,
+        },
+        {
+            url: Shopee5,
+        },
+        {
+            url: Shopee6,
+        },
+        {
+            url: Fb2,
+        },
+    ];
 
     return (
-    <div className="relative content-center w-full md:w-2/3 overflow-hidden rounded-lg md:basis-2/3">
-        <div>
-            <motion.div
-                className="flex gap-40 md:gap-28"
-                animate={{
-                    x: ['0%', '-100%'],
-                    transition: {
-                        ease: 'linear',
-                        duration: 20,
-                        repeat: Infinity,
-                    }
-                }}
-            >
-                {duplicatedReviews.map((review, index) => (
-                    <div key={index} style={{ width: `${100 / reviews.length}%` }}>
-                        <div className="flex flex-col items-center justify-center">
-                            <TestimonialCard review={review.review} channel={review.channel} />
-                        </div>
+        <div className="relative content-center w-full md:w-2/3 overflow-hidden md:basis-2/3 px-3">
+            <div className="flex gap-x-4 snap-x overflow-x-hidden hover:overflow-x-auto w-full scroll-pl-10">
+                {slides.map((slide, index) => (
+                    <div key={index} className="flex-shrink-0 snap-center">
+                        <img src={slide.url} className="rounded-lg h-52 md:h-72 min-w-full object-cover" />
                     </div>
                 ))}
-            </motion.div>
+            </div>
         </div>
-    </div>
-    )
-}
-
-interface TestimonialCardProps {
-    review: string;
-    channel: string;
-}
-
-function TestimonialCard({ review, channel }: TestimonialCardProps) {
-    return (
-        <div className="bg-gray-200 rounded-lg shadow-lg p-5 w-56 h-64 md:w-60 md:h-72 flex flex-col justify-between">
-            <RiDoubleQuotesL className="text-red-400 text-4xl opacity-75" />
-            <p className="text-xl md:text-2xl font-notothai">{`"${review}"`}</p>
-            <p className="text-md md:text-lg text-right font-notothai">{`คุณลูกค้าทาง ${channel}`}</p>
-        </div>
-    )
+    );
 }

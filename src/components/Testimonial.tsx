@@ -1,8 +1,8 @@
 import { RiDoubleQuotesL } from "react-icons/ri";
-import lazadaReview from '../assets/lazada-review.jpeg';
-import shopeeReview from '../assets/shopee-review.jpeg';
-import lazadaLogo from '../assets/lazada_logo.png';
-import shopeeLogo from '../assets/shopee_logo.png';
+import lazadaReview from '../assets/testimonials/lazada-review.jpeg';
+import shopeeReview from '../assets/testimonials/shopee-review.jpeg';
+import lazadaLogo from '../assets/logo/lazada_logo.png';
+import shopeeLogo from '../assets/logo/shopee_logo.png';
 import TestimonialSlider from "../animations/TestimonialSlider";
 import PhotoSlider from "../animations/PhotoSlider";
 import Reveal from "../animations/Reveal";

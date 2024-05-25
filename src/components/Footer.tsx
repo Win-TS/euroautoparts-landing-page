@@ -1,4 +1,4 @@
-import logo from '../assets/euroautoparts-logo.png';
+import logo from '../assets/logo/euroautoparts-logo.png';
 import { NavLink } from 'react-router-dom';
 
 export default function Footer() {

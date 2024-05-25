@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Spin as Hamburger } from 'hamburger-react';
 import { Transition } from '@headlessui/react';
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/euroautoparts-logo.png';
+import logo from '../assets/logo/euroautoparts-logo.png';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
