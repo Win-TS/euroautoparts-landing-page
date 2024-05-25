@@ -25,14 +25,22 @@ export default function CallToAction() {
             contact: data.contact,
             phone: data.phone
         };
+        Swal.fire({
+            title: "<span class='font-notothai font-semibold'>กำลังส่งข้อมูล...</span>",
+            html: "<span class='font-notothai'>โปรดรอสักครู่</span>",
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
         axios({
             method: "POST",
             baseURL: import.meta.env.VITE_API_URL,
             url: "/sheets/lead",
             data: newLead
         })
-        .then(response => {
-            console.log(response.status, response.data);
+        .then(() => {
+            Swal.close();
             Swal.fire({
                 title: "<span class='font-notothai font-semibold'>ขอบคุณสำหรับความสนใจ!</span>",
                 html: "<span class='font-notothai'>ทางร้านจะตอบกลับโดยเร็วที่สุดครับ</span>",
@@ -44,6 +52,7 @@ export default function CallToAction() {
                 phone: ""
             });
         }).catch((error) => {
+            Swal.close();
             console.log(error);
             if (error.response && error.response.status === 400) {
                 Swal.fire({
