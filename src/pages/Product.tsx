@@ -11,10 +11,6 @@ export default function Product() {
         model: ""
     });
 
-    const { data, totalPages, currentPage, setCurrentPage } = useProductFetcher(filters);
-
-    
-
     const applyFilters = (filter: { type: string; brand: string; model: string }) => {
         setFilters(filter);
         console.log(filter);
@@ -28,6 +24,8 @@ export default function Product() {
         });
         console.log(filters);
     };
+
+    const { data, totalPages, currentPage, setCurrentPage } = useProductFetcher(filters);
 
     return (
         <div>

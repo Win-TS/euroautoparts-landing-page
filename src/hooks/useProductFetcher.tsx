@@ -12,22 +12,31 @@ export default function useProductFetcher(filters: ProductFetcherProps) {
     const [data, setData] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
     const [currentPage, setCurrentPage] = useState(0);
-
     const [apiEndpoint, setApiEndpoint] = useState("/sheets/products");
 
-    if (filters.type !== "" && filters.brand === "" && filters.model === "") {
-        setApiEndpoint("/sheets/products/type" + "/" + filters.type);
-    } else if (filters.type === "" && filters.brand !== "" && filters.model === "") {
-        setApiEndpoint("/sheets/products/brand" + "/" + filters.brand);
-    } else if (filters.type === "" && filters.brand === "" && filters.model !== "") {
-        setApiEndpoint("/sheets/products/model" + "/" + filters.model);
-    } else if (filters.type !== "" && filters.brand !== "" && filters.model === "") {
-        setApiEndpoint("/sheets/products/type&brand" + "/" + filters.type + "/" + filters.brand);
-    } else if (filters.type !== "" && filters.model !== "") {
-        setApiEndpoint("/sheets/products/type&model" + "/" + filters.type + "/" + filters.model);
-    }
-
     useEffect(() => {
+        interface ProductTypes {
+            [key: string]: string;
+        }
+
+        const productTypes: ProductTypes = {
+            "อะไหล่ภายใน": "interior", 
+            "อะไหล่ภายนอก": "exterior",
+            "อะไหล่ช่วงล่าง": "suspension"
+        }
+
+        if (filters.type !== "" && filters.brand === "" && filters.model === "") {
+            setApiEndpoint("/sheets/products/type" + "/" + productTypes[filters.type]);
+        } else if (filters.type === "" && filters.brand !== "" && filters.model === "") {
+            setApiEndpoint("/sheets/products/brand" + "/" + filters.brand);
+        } else if (filters.type === "" && filters.brand === "" && filters.model !== "") {
+            setApiEndpoint("/sheets/products/model" + "/" + filters.model);
+        } else if (filters.type !== "" && filters.brand !== "" && filters.model === "") {
+            setApiEndpoint("/sheets/products/type&brand" + "/" + productTypes[filters.type] + "/" + filters.brand);
+        } else if (filters.type !== "" && filters.model !== "") {
+            setApiEndpoint("/sheets/products/type&model" + "/" + productTypes[filters.type] + "/" + filters.model);
+        }
+
         const fetchData = async () => {
             Swal.fire({
                 title: "<span class='font-notothai font-semibold'>กำลังโหลดข้อมูล...</span>",
@@ -58,7 +67,7 @@ export default function useProductFetcher(filters: ProductFetcherProps) {
         };
     
         fetchData();
-    }, [currentPage]);
+    }, [currentPage, apiEndpoint, filters]);
 
     return { data, totalPages, currentPage, setCurrentPage };
 }

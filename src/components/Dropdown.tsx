@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 
 interface DropdownProps {
     buttonText: string;
     contents: string[];
+    selected: string;
     onSelect: (item: string) => void;
 }
 
-export default function Dropdown({ buttonText, contents, onSelect }: DropdownProps) {
+export default function Dropdown({ buttonText, contents, selected, onSelect }: DropdownProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(buttonText);
 
@@ -20,6 +21,10 @@ export default function Dropdown({ buttonText, contents, onSelect }: DropdownPro
         setSelectedItem(item);
         setIsOpen(false);
     };
+
+    useEffect(() => {
+        setSelectedItem(selected || buttonText);
+    }, [selected, buttonText]);
 
     return (
         <div className="relative w-40 my-2">

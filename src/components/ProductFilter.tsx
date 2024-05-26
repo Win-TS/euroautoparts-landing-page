@@ -28,21 +28,32 @@ export default function ProductFilter({ filters, onApplyFilters, onClearFilters 
     };
 
     const handleTypeChange = (type: string) => {
-        setSelectedType(type);
+        if (type === "ประเภทอะไหล่") {
+            setSelectedType("");
+        } else {
+            setSelectedType(type);
+        }
     };
 
     const handleBrandChange = (brand: string) => {
-        setSelectedBrand(brand);
+        if (brand === "แบรนด์รถยนต์") {
+            setSelectedBrand("");
+        } else {
+            setSelectedBrand(brand);
+        }
+        
     };
 
     const handleModelChange = (model: string) => {
-        setSelectedModel(model);
+        if (model === "รุ่นรถยนต์") {
+            setSelectedModel("");
+        } else {
+            setSelectedModel(model);
+        }
     };
 
     const applyButton = () => {
-        if (selectedType !== filters.type || selectedBrand !== filters.brand || selectedModel !== filters.model) {
-            onApplyFilters({ type: selectedType, brand: selectedBrand, model: selectedModel });
-        }
+        onApplyFilters({ type: selectedType, brand: selectedBrand, model: selectedModel });
     };
 
     const filterVariants = {
@@ -69,9 +80,9 @@ export default function ProductFilter({ filters, onApplyFilters, onClearFilters 
             <div className="hidden md:block bg-gray-100 p-2">
                 <div className={`flex justify-evenly items-center`}>
                     <h1 className="font-notothai font-semibold">กรองสินค้า</h1>
-                    <Dropdown buttonText="ประเภทอะไหล่" contents={["อะไหล่ภายใน", "อะไหล่ภายนอก", "อะไหล่ช่วงล่าง"]} onSelect={handleTypeChange} />
-                    <Dropdown buttonText="แบรนด์รถยนต์" contents={["BMW", "Benz", "MINI"]} onSelect={handleBrandChange} />
-                    <Dropdown buttonText="รุ่นรถยนต์" contents={["item 1", "item 2", "item 3", "item 4", "item 5", "item 6"]} onSelect={handleModelChange} />
+                    <Dropdown buttonText="ประเภทอะไหล่" contents={["อะไหล่ภายใน", "อะไหล่ภายนอก", "อะไหล่ช่วงล่าง"]} selected={filters.type} onSelect={handleTypeChange} />
+                    <Dropdown buttonText="แบรนด์รถยนต์" contents={["BMW", "Benz", "MINI"]} selected={filters.brand} onSelect={handleBrandChange} />
+                    <Dropdown buttonText="รุ่นรถยนต์" contents={["item 1", "item 2", "item 3", "item 4", "item 5", "item 6"]} selected={filters.model} onSelect={handleModelChange} />
                     <button
                         className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-sky-400 rounded hover:indigo-600 group h-[2.625rem] w-32"
                         onClick={applyButton}
@@ -110,9 +121,9 @@ export default function ProductFilter({ filters, onApplyFilters, onClearFilters 
                             className="px-10"
                         >
                             <div className="flex flex-col justify-evenly items-center">
-                                <Dropdown buttonText="ประเภทอะไหล่" contents={["อะไหล่ภายใน", "อะไหล่ภายนอก", "อะไหล่ช่วงล่าง"]} onSelect={handleTypeChange} />
-                                <Dropdown buttonText="แบรนด์รถยนต์" contents={["BMW", "Benz", "MINI"]} onSelect={handleBrandChange} />
-                                <Dropdown buttonText="รุ่นรถยนต์" contents={["item 1", "item 2", "item 3", "item 4", "item 5", "item 6"]} onSelect={handleModelChange} />
+                                <Dropdown buttonText="ประเภทอะไหล่" contents={["อะไหล่ภายใน", "อะไหล่ภายนอก", "อะไหล่ช่วงล่าง"]} selected={filters.type} onSelect={handleTypeChange} />
+                                <Dropdown buttonText="แบรนด์รถยนต์" contents={["BMW", "Benz", "MINI"]} selected={filters.brand} onSelect={handleBrandChange} />
+                                <Dropdown buttonText="รุ่นรถยนต์" contents={["item 1", "item 2", "item 3", "item 4", "item 5", "item 6"]} selected={filters.model} onSelect={handleModelChange} />
                                 <button
                                     className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-sky-400 rounded hover:indigo-600 group h-[2.625rem] w-32 my-2"
                                     onClick={applyButton}
