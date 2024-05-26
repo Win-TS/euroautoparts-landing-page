@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import Reveal from "../animations/Reveal";
 import Accordion from "../components/Accordion";
 
 export default function FAQ() {
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
     const accordionIds = [
         {
             title:"test q1",

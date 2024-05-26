@@ -1,9 +1,33 @@
+import { useState } from "react";
 import Reveal from "../animations/Reveal";
 import PaginateProduct from "../components/PaginateProduct";
+import ProductFilter from "../components/ProductFilter";
 import useProductFetcher from "../hooks/useProductFetcher";
 
 export default function Product() {
-    const { data, totalPages, currentPage, setCurrentPage } = useProductFetcher();
+    const [filters, setFilters] = useState({
+        type: "",
+        brand: "",
+        model: ""
+    });
+
+    const { data, totalPages, currentPage, setCurrentPage } = useProductFetcher(filters);
+
+    
+
+    const applyFilters = (filter: { type: string; brand: string; model: string }) => {
+        setFilters(filter);
+        console.log(filter);
+    };
+
+    const clearFilters = () => {
+        setFilters({
+            type: "",
+            brand: "",
+            model: ""
+        });
+        console.log(filters);
+    };
 
     return (
         <div>
@@ -15,6 +39,9 @@ export default function Product() {
                     </>
                 </Reveal>
             </div>
+
+            <ProductFilter filters={filters} onApplyFilters={applyFilters} onClearFilters={clearFilters} />
+
             <Reveal>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-5 p-4 justify-items-center">
                         {data.map((item) => (

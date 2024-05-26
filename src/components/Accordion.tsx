@@ -16,7 +16,7 @@ export default function Accordion({ question, answer }: AccordionProps) {
 
     return (
         <div className="m-4 rounded-lg overflow-hidden border border-gray-300">
-             <div className="py-5 px-10 flex justify-between items-center cursor-pointer transition duration-300 ease-in-out bg-amber-100 hover:bg-amber-200" onClick={toggleAccordion}>
+            <div className="py-5 px-10 flex justify-between items-center cursor-pointer transition duration-300 ease-in-out bg-amber-100 hover:bg-amber-200" onClick={toggleAccordion}>
                 <p className="text-lg font-notothai font-bold">{question}</p>
                 <motion.div
                     className="texl-lg md:text-xl font-notothai"
