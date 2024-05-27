@@ -50,11 +50,14 @@ export default function useProductFetcher(filters: ProductFetcherProps) {
             try {
                 const pageCountResponse = await axios.get(import.meta.env.VITE_API_URL + apiEndpoint + "/page-count", { params: { "limit": 16 } });
                 setTotalPages(pageCountResponse.data.pageCount);
-    
-                const page = Math.min(currentPage + 1, pageCountResponse.data.pageCount);
-                const productsResponse = await axios.get(import.meta.env.VITE_API_URL + apiEndpoint + "/page", { params: { "pageNo": page, "limit": 16 } });
-                setData(productsResponse.data.products);
-    
+                
+                if (pageCountResponse.data.pageCount === 0) {
+                    setData([]);
+                } else {
+                    const page = Math.min(currentPage + 1, pageCountResponse.data.pageCount);
+                    const productsResponse = await axios.get(import.meta.env.VITE_API_URL + apiEndpoint + "/page", { params: { "pageNo": page, "limit": 16 } });
+                    setData(productsResponse.data.products);
+                }
                 Swal.close();
             } catch (error) {
                 console.error(error);

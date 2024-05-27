@@ -41,18 +41,23 @@ export default function Product() {
             <ProductFilter filters={filters} onApplyFilters={applyFilters} onClearFilters={clearFilters} />
 
             <Reveal>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-5 p-4 justify-items-center">
-                        {data.map((item) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-5 p-4 justify-items-center">
+                    {data.length === 0 ? (
+                        <div className="col-span-full text-lg font-notothai text-center text-gray-500">ไม่พบข้อมูลตามตัวกรอง</div>
+                    ) : (
+                        data.map((item) => (
                             <ProductCard
                                 key={item[0]}
-                                name={item[4]}
+                                name={item[5]}
                                 type={item[1]}
-                                car={item[2]}
-                                color={item[5]}
-                                price={item[6]}
-                                image={item[7]}
+                                brand={item[2]}
+                                car={item[3]}
+                                color={item[6]}
+                                price={item[7]}
+                                image={item[8]}
                             />
-                        ))}
+                        ))
+                    )}
                 </div>
             </Reveal>
             <Reveal>
@@ -65,13 +70,14 @@ export default function Product() {
 interface ProductCardProps {
     name: string;
     type: string;
+    brand: string;
     car: string;
     color: string
     price: string;
     image: string;
 }
 
-function ProductCard({ name, type, car, color, price, image }: ProductCardProps) {
+function ProductCard({ name, type, brand, car, color, price, image }: ProductCardProps) {
     const markerColor = type === "อะไหล่ภายนอก"
         ? "bg-red-500"
         : type === "อะไหล่ภายใน"
@@ -87,7 +93,7 @@ function ProductCard({ name, type, car, color, price, image }: ProductCardProps)
                 <h1 className={`text-xl font-notothai font-bold text-center ${!color && "py-3.5"}`}>
                     {name} {color && <><br /><span className="text-md font-notothai">{color}</span></>}
                 </h1>
-                <p className="text-md font-notothai font-semibold">{car}</p>
+                <p className="text-md font-notothai font-semibold">{brand + " " + car}</p>
                 <p className="text-md font-notothai text-center flex items-center">
                     <span className={`w-2 h-2 rounded-full mr-2 ${markerColor}`}></span>
                     {type}
