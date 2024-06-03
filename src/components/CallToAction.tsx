@@ -7,8 +7,16 @@ export default function CallToAction() {
     const [data, setData] = useState({
         name: "",
         contact: "",
-        phone: ""
+        phone: "",
+        province: "",
     });
+
+    const dropdownOptions = [
+        { value: 'กรุงเทพฯ', label: 'กรุงเทพฯ' },
+        { value: 'นนทบุรี', label: 'นนทบุรี' },
+        { value: 'ปริมณฑล', label: 'ปริมณฑล' },
+        { value: 'จังหวัดอื่นๆ', label: 'จังหวัดอื่นๆ' },
+    ];
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -16,14 +24,23 @@ export default function CallToAction() {
             ...data,
             [name]: value
         });
-    };    
+    };   
+
+    const handleDropdownChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         const newLead = {
             name: data.name,
             contact: data.contact,
-            phone: data.phone
+            phone: data.phone,
+            province: data.province,
         };
         Swal.fire({
             title: "<span class='font-notothai font-semibold'>กำลังส่งข้อมูล...</span>",
@@ -49,7 +66,8 @@ export default function CallToAction() {
             setData({
                 name: "",
                 contact: "",
-                phone: ""
+                phone: "",
+                province: "",
             });
         }).catch((error) => {
             Swal.close();
@@ -125,6 +143,13 @@ export default function CallToAction() {
                             placeholder="เบอร์โทรศัพท์" 
                             className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai" 
                         />
+                        <ProvinceDropdown 
+                            name="province" 
+                            value={data.province}
+                            onChange={handleDropdownChange}
+                            options={dropdownOptions}
+                            placeholder="จังหวัด"
+                        />
                         <button 
                             type="submit" 
                             className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-sky-400 rounded hover:indigo-600 group py-2 px-3 w-64 mt-4">
@@ -137,5 +162,29 @@ export default function CallToAction() {
                 </Reveal>
             </div> 
         </div>
+    );
+}
+
+interface ProvinceDropdownProps {
+    name: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+    options: { value: string, label: string }[];
+    placeholder: string;
+}
+
+function ProvinceDropdown({ name, value, onChange, options, placeholder }: ProvinceDropdownProps) {
+    return (
+        <select 
+            name={name} 
+            value={value} 
+            onChange={onChange} 
+            className="block w-64 mt-4 px-4 py-2 rounded border border-gray-300 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 font-notothai"
+        >
+            <option value="" disabled>{placeholder}</option>
+            {options.map((option) => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
+        </select>
     );
 }
