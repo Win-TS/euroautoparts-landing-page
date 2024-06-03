@@ -16,8 +16,9 @@ export default function Accordion({ question, answer }: AccordionProps) {
 
     return (
         <div className="m-4 rounded-lg overflow-hidden border border-gray-300">
-            <div className="py-5 px-10 flex justify-between items-center cursor-pointer transition duration-300 ease-in-out bg-amber-100 hover:bg-amber-200" onClick={toggleAccordion}>
-                <p className="text-lg font-notothai font-bold">{question}</p>
+            <div className="py-5 px-10 flex items-center cursor-pointer transition duration-300 ease-in-out bg-amber-100 hover:bg-amber-200 gap-3" onClick={toggleAccordion}>
+                <h1 className="text-2xl font-notothai font-bold">Q:</h1>
+                <p className="text-lg font-notothai font-bold grow">{question}</p>
                 <motion.div
                     className="texl-lg md:text-xl font-notothai"
                     animate={{ rotate: isOpen ? -180 : 0 }}
@@ -38,7 +39,7 @@ export default function Accordion({ question, answer }: AccordionProps) {
                         className="px-10"
                     >
                         <div className="py-5">
-                            <p className="text-md md:text-lg font-notothai">{answer}</p>
+                            <p className="text-lg font-notothai">{answer}</p>
                         </div>
                     </motion.div>
                 )}
