@@ -1,9 +1,51 @@
-//import heroImage from '../assets/e60-ใต้เครื่อง.jpg';
+import heroImage1 from '../assets/heroCaurosel/hero1.jpeg';
+import heroImage2 from '../assets/heroCaurosel/hero2.jpeg';
+import heroImage3 from '../assets/heroCaurosel/hero3.jpeg';
+import heroImage4 from '../assets/heroCaurosel/hero4.jpeg';
+import heroImage5 from '../assets/heroCaurosel/hero5.jpeg';
+import heroImage6 from '../assets/heroCaurosel/hero6.jpeg';
+import heroImage7 from '../assets/heroCaurosel/hero7.jpeg';
+import heroImage8 from '../assets/heroCaurosel/hero8.jpeg';
+import heroImage9 from '../assets/heroCaurosel/hero9.jpeg';
+import heroImage10 from '../assets/heroCaurosel/hero10.jpeg';
 import Reveal from '../animations/Reveal';
-import  Carousel  from '../animations/Caurosel';
+import  HeroCarousel  from '../animations/HeroCaurosel';
 import BackgroundCarousel from '../animations/BackgroundCaurosel';
 
 export default function Hero() {
+    const images = [
+        {
+            path: heroImage1
+        },
+        {
+            path: heroImage2
+        },
+        {
+            path: heroImage3
+        },
+        {
+            path: heroImage4
+        },
+        {
+            path: heroImage5
+        },
+        {
+            path: heroImage6
+        },
+        {
+            path: heroImage7
+        },
+        {
+            path: heroImage8
+        },
+        {
+            path: heroImage9
+        },
+        {
+            path: heroImage10
+        },
+    ];
+
     return (
         <>
             <div className='bg-center w-screen h-96 hidden md:flex flex-row bg-gradient-to-r from-gray-1 to-black-1 justify-center items-center'>
@@ -28,13 +70,13 @@ export default function Hero() {
                 </div>
                 <div className='flex w-1/2 h-96 justify-center items-center pr-2 3xl:pr-60'>
                     <Reveal>
-                        <Carousel />
+                        <HeroCarousel images={ images } />
                     </Reveal>
                 </div>
             </div>
 
             <div className='bg-center w-screen h-80 flex md:hidden flex-col justify-center items-center'>
-                <BackgroundCarousel>
+                <BackgroundCarousel images={ images }>
                 <div className='px-4 flex flex-col justify-center items-center pb-2'>
                     <Reveal>
                         <div className='w-full text-center'>
