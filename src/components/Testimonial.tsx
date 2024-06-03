@@ -109,7 +109,7 @@ export default function Testimonial() {
     ]
 
     return (
-        <div className="bg-slate-400">
+        <div className="bg-gray-300">
             <Reveal>
                 <div className="flex justify-between flex-col md:flex-row pb-6 md:pb-0">
                     <div className="flex md:hidden flex-col w-full md:w-1/3 justify-center items-center -top-3 relative py-4 pl-2">

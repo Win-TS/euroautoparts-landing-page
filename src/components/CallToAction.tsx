@@ -72,7 +72,7 @@ export default function CallToAction() {
 
     return (
         <div>
-            <div className="flex flex-col md:flex-row bg-gray-300 justify-evenly">
+            <div className="flex flex-col md:flex-row bg-gray-200 justify-evenly">
 
                 <Reveal className="content-center">
                 <div className="flex flex-col justify-center py-10 px-5 md:px-24 items-center">

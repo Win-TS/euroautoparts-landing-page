@@ -6,7 +6,7 @@ import Reveal from '../animations/Reveal';
 
 export default function Channels() {
     return (
-        <div className='bg-slate-200'>
+        <div className='bg-gray-300'>
             <Reveal>
                 <div className="hidden md:grid grid-cols-5 gap-3 px-5 py-5 justify-items-center">
                     <div className="flex flex-col justify-center items-center h-full">
@@ -37,7 +37,7 @@ export default function Channels() {
             </Reveal>
 
             <Reveal>
-                <div className='block md:hidden w-full bg-slate-200 pb-2'>
+                <div className='block md:hidden w-full bg-slate-300 pb-2'>
                     <h1 className="text-2xl font-bold text-center font-notothai pt-5">ช่องทางการสั่งซื้อ</h1>
                     <h1 className="text-2xl font-bold text-center font-notothai">Channels</h1>
                     <div className="grid grid-cols-4 gap-1 px-2">
