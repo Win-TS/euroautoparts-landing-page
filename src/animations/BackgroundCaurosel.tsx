@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 interface CarouselProps {
   children?: JSX.Element;
-  images: { path: string }[];
+  images: string[];
 }
 
 export default function BackgroundCarousel({ children, images }: CarouselProps) {
@@ -30,7 +30,7 @@ export default function BackgroundCarousel({ children, images }: CarouselProps) 
       {images.map((slide, index) => (
         <div
           key={index}
-          style={{ backgroundImage: `url(${slide.path})` }}
+          style={{ backgroundImage: `url(${slide})` }}
           className={`absolute w-full h-full bg-center bg-cover transition-opacity duration-1000 ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
         ></div>
       ))}

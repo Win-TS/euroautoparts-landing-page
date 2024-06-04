@@ -33,6 +33,8 @@ export default function useProductFetcher(filters: ProductFetcherProps) {
             newApiEndpoint = "/sheets/products/brand" + "/" + filters.brand;
         } else if (filters.type === "" && filters.brand === "" && filters.model !== "") {
             newApiEndpoint = "/sheets/products/model" + "/" + filters.model.split(" ").pop();
+        } else if (filters.type === "" && filters.brand !== "" && filters.model !== "") {
+            newApiEndpoint = "/sheets/products/model" + "/" + filters.model.split(" ").pop(); 
         } else if (filters.type !== "" && filters.brand !== "" && filters.model === "") {
             newApiEndpoint = "/sheets/products/type&brand" + "/" + productTypes[filters.type] + "/" + filters.brand;
         } else if (filters.type !== "" && filters.model !== "") {
@@ -41,7 +43,7 @@ export default function useProductFetcher(filters: ProductFetcherProps) {
 
         if (newApiEndpoint !== apiEndpoint) {
             setApiEndpoint(newApiEndpoint);
-            setCurrentPage(0); // Reset current page when filters change
+            setCurrentPage(0);
         }
     }, [filters, apiEndpoint]);
 

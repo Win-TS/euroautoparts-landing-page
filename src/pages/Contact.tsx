@@ -25,6 +25,7 @@ export default function Contact() {
                             <p className="text-lg font-semibold font-notothai flex items-center flex-wrap">
                                 <FaPhone className="mr-2 text-blue-500" /> เบอร์โทรศัพท์/Phone
                                 <span className="ml-2 text-gray-700">: <a href="tel:061-462-4535" className="hover:text-blue-500 underline">061-462-4535</a></span>
+                                <span className="ml-2 text-gray-700">, <a href="tel:086-546-2446" className="hover:text-blue-500 underline">086-546-2446</a></span>
                             </p>
                         </div>
                         <div className="my-4">

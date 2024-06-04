@@ -13,38 +13,7 @@ import  HeroCarousel  from '../animations/HeroCaurosel';
 import BackgroundCarousel from '../animations/BackgroundCaurosel';
 
 export default function Hero() {
-    const images = [
-        {
-            path: heroImage1
-        },
-        {
-            path: heroImage2
-        },
-        {
-            path: heroImage3
-        },
-        {
-            path: heroImage4
-        },
-        {
-            path: heroImage5
-        },
-        {
-            path: heroImage6
-        },
-        {
-            path: heroImage7
-        },
-        {
-            path: heroImage8
-        },
-        {
-            path: heroImage9
-        },
-        {
-            path: heroImage10
-        },
-    ];
+    const images = [ heroImage1, heroImage2, heroImage3, heroImage4, heroImage5, heroImage6, heroImage7, heroImage8, heroImage9, heroImage10 ];
 
     return (
         <>

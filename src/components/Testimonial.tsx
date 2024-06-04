@@ -33,80 +33,8 @@ import Reveal from "../animations/Reveal";
 
 export default function Testimonial() {
 
-    const TestimonialImages = [
-        {
-            path: Lazada1,
-        },
-        {
-            path: Shopee1,
-        },
-        {
-            path: Lazada2,
-        },
-        {
-            path: Shopee2,
-        },
-        {
-            path: Lazada3,
-        },
-        {
-            path: Lazada4,
-        },
-        {
-            path: Shopee3,
-        },
-        {
-            path: Fb1,
-        },
-        {
-            path: Lazada5,
-        },
-        {
-            path: Shopee4,
-        },
-        {
-            path: Lazada6,
-        },
-        {
-            path: Lazada7,
-        },
-        {
-            path: Shopee5,
-        },
-        {
-            path: Shopee6,
-        },
-        {
-            path: Fb2,
-        },
-    ];
-
-    const SliderImages = [
-        {
-            path: Slider1,
-        },
-        {
-            path: Slider2,
-        },
-        {
-            path: Slider3,
-        },
-        {
-            path: Slider4,
-        },
-        {
-            path: Slider5,
-        },
-        {
-            path: Slider6,
-        },
-        {
-            path: Slider7,
-        },
-        {
-            path: Slider8,
-        }
-    ]
+    const TestimonialImages = [ Lazada1, Shopee1, Lazada2, Shopee2, Lazada3, Lazada4, Shopee3, Fb1, Lazada5, Shopee4, Lazada6, Lazada7, Shopee5, Shopee6, Fb2 ];
+    const SliderImages = [ Slider1, Slider2, Slider3, Slider4, Slider5, Slider6, Slider7, Slider8 ];
 
     return (
         <div className="bg-gray-300">
@@ -122,11 +50,15 @@ export default function Testimonial() {
                         </div>
                         <div className="flex flex-col gap-3 items-center">
                                 <div className="flex items-center justify-center gap-2">
-                                    <img src={lazadaLogo} className="h-20" />
+                                    <a href="https://www.lazada.co.th/shop/euroautoparts" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110" >
+                                        <img src={lazadaLogo} className="h-20" />
+                                    </a>
                                     <img src={lazadaReview} className="w-64" />
                                 </div>
                                 <div className="flex items-center justify-center gap-2">
-                                    <img src={shopeeLogo} className="h-20" />
+                                    <a href="https://shopee.co.th/euroautopartsth" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110" >
+                                        <img src={shopeeLogo} className="h-20" />
+                                    </a>
                                     <img src={shopeeReview} className="w-64" />
                                 </div>
                         </div>
@@ -143,11 +75,15 @@ export default function Testimonial() {
                             </div>
                             <div className="flex flex-col gap-3 items-center">
                                 <div className="flex items-center justify-center gap-2">
-                                    <img src={lazadaLogo} className="h-20" />
+                                    <a href="https://www.lazada.co.th/shop/euroautoparts" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110" >
+                                        <img src={lazadaLogo} className="h-20" />
+                                    </a>
                                     <img src={lazadaReview} className="w-64" />
                                 </div>
                                 <div className="flex items-center justify-center gap-2">
-                                    <img src={shopeeLogo} className="h-20" />
+                                    <a href="https://shopee.co.th/euroautopartsth" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110" >
+                                        <img src={shopeeLogo} className="h-20" />
+                                    </a>
                                     <img src={shopeeReview} className="w-64" />
                                 </div>
                             </div>
