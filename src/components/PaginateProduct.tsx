@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
@@ -15,10 +14,6 @@ export default function PaginateProduct({ totalPages, currentPage, setCurrentPag
 
     const showNextButton = currentPage !== totalPages - 1;
     const showPrevButton = currentPage !== 0;
-
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [currentPage]);
 
     return (
         <div className="flex justify-center items-center">

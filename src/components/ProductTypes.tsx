@@ -79,7 +79,7 @@ function TypeCard({ type, cars, description, background }: TypeCardProps) {
             onClick={toggleModal}
           >
             <div
-              className="absolute inset-0 bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-black before:opacity-25"
+              className="absolute inset-0 bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-black before:opacity-40"
               style={{ backgroundImage: `url(${background})` }}
             ></div>
             <h1 className="text-2xl font-notothai font-bold text-center text-white relative">{type}</h1>

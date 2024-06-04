@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaCircleArrowUp } from "react-icons/fa6";
 import Reveal from "../animations/Reveal";
 import PaginateProduct from "../components/PaginateProduct";
 import ProductFilter from "../components/ProductFilter";
@@ -24,6 +25,10 @@ export default function Product() {
         });
         console.log(filters);
     };
+
+    const toPageTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     const { data, totalPages, currentPage, setCurrentPage } = useProductFetcher(filters);
 
@@ -63,6 +68,9 @@ export default function Product() {
             <Reveal>
                 <PaginateProduct totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
             </Reveal>
+            <div  className="flex justify-center items-center" onClick={toPageTop} >
+                <FaCircleArrowUp className="w-8 h-8 text-blue-500 mt-5 border border-gray-300 rounded-full animate-bounce cursor-pointer"/>
+            </div>
         </div>
     )
 }
