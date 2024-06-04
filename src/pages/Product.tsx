@@ -14,7 +14,6 @@ export default function Product() {
 
     const applyFilters = (filter: { type: string; brand: string; model: string }) => {
         setFilters(filter);
-        console.log(filter);
     };
 
     const clearFilters = () => {
@@ -23,7 +22,6 @@ export default function Product() {
             brand: "",
             model: ""
         });
-        console.log(filters);
     };
 
     const toPageTop = () => {
@@ -46,25 +44,33 @@ export default function Product() {
             <ProductFilter filters={filters} onApplyFilters={applyFilters} onClearFilters={clearFilters} />
 
             <Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-5 p-4 justify-items-center">
-                    {data.length === 0 ? (
-                        <div className="col-span-full text-lg font-notothai text-center text-gray-500">ไม่พบข้อมูลตามตัวกรอง</div>
+                <>  
+                    {(filters.type !== "" || filters.brand !== "" || filters.model !== "") ? (
+                        <h2 className="text-lg font-notothai text-center text-gray-500 pt-3">{`ตัวกรองตอนนี้: ${filters.type} ${filters.brand} ${filters.model}`}</h2>
                     ) : (
-                        data.map((item) => (
-                            <ProductCard
-                                key={item[0]}
-                                name={item[5]}
-                                type={item[1]}
-                                brand={item[2]}
-                                car={item[3]}
-                                color={item[6]}
-                                price={item[7]}
-                                image={item[8]}
-                            />
-                        ))
+                        <div></div>
                     )}
-                </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-5 p-3 justify-items-center">
+                        {data.length === 0 ? (
+                            <div className="col-span-full text-lg font-notothai text-center text-gray-500">ไม่พบข้อมูลตามตัวกรอง</div>
+                        ) : (
+                            data.map((item) => (
+                                <ProductCard
+                                    key={item[0]}
+                                    name={item[5]}
+                                    type={item[1]}
+                                    brand={item[2]}
+                                    car={item[3]}
+                                    color={item[6]}
+                                    price={item[7]}
+                                    image={item[8]}
+                                />
+                            ))
+                        )}
+                    </div>
+                </>
             </Reveal>
+
             <Reveal>
                 <PaginateProduct totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
             </Reveal>

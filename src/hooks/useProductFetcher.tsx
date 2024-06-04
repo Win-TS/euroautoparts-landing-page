@@ -25,18 +25,27 @@ export default function useProductFetcher(filters: ProductFetcherProps) {
             "อะไหล่ช่วงล่าง": "suspension"
         }
 
+        let newApiEndpoint = "/sheets/products";
+
         if (filters.type !== "" && filters.brand === "" && filters.model === "") {
-            setApiEndpoint("/sheets/products/type" + "/" + productTypes[filters.type]);
+            newApiEndpoint = "/sheets/products/type" + "/" + productTypes[filters.type];
         } else if (filters.type === "" && filters.brand !== "" && filters.model === "") {
-            setApiEndpoint("/sheets/products/brand" + "/" + filters.brand);
+            newApiEndpoint = "/sheets/products/brand" + "/" + filters.brand;
         } else if (filters.type === "" && filters.brand === "" && filters.model !== "") {
-            setApiEndpoint("/sheets/products/model" + "/" + filters.model);
+            newApiEndpoint = "/sheets/products/model" + "/" + filters.model;
         } else if (filters.type !== "" && filters.brand !== "" && filters.model === "") {
-            setApiEndpoint("/sheets/products/type&brand" + "/" + productTypes[filters.type] + "/" + filters.brand);
+            newApiEndpoint = "/sheets/products/type&brand" + "/" + productTypes[filters.type] + "/" + filters.brand;
         } else if (filters.type !== "" && filters.model !== "") {
-            setApiEndpoint("/sheets/products/type&model" + "/" + productTypes[filters.type] + "/" + filters.model);
+            newApiEndpoint = "/sheets/products/type&model" + "/" + productTypes[filters.type] + "/" + filters.model;
         }
 
+        if (newApiEndpoint !== apiEndpoint) {
+            setApiEndpoint(newApiEndpoint);
+            setCurrentPage(0); // Reset current page when filters change
+        }
+    }, [filters, apiEndpoint]);
+
+    useEffect(() => {
         const fetchData = async () => {
             Swal.fire({
                 title: "<span class='font-notothai font-semibold'>กำลังโหลดข้อมูล...</span>",
@@ -70,7 +79,7 @@ export default function useProductFetcher(filters: ProductFetcherProps) {
         };
     
         fetchData();
-    }, [currentPage, apiEndpoint, filters]);
+    }, [currentPage, apiEndpoint]);
 
     return { data, totalPages, currentPage, setCurrentPage };
 }
