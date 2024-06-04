@@ -32,11 +32,11 @@ export default function useProductFetcher(filters: ProductFetcherProps) {
         } else if (filters.type === "" && filters.brand !== "" && filters.model === "") {
             newApiEndpoint = "/sheets/products/brand" + "/" + filters.brand;
         } else if (filters.type === "" && filters.brand === "" && filters.model !== "") {
-            newApiEndpoint = "/sheets/products/model" + "/" + filters.model;
+            newApiEndpoint = "/sheets/products/model" + "/" + filters.model.split(" ").pop();
         } else if (filters.type !== "" && filters.brand !== "" && filters.model === "") {
             newApiEndpoint = "/sheets/products/type&brand" + "/" + productTypes[filters.type] + "/" + filters.brand;
         } else if (filters.type !== "" && filters.model !== "") {
-            newApiEndpoint = "/sheets/products/type&model" + "/" + productTypes[filters.type] + "/" + filters.model;
+            newApiEndpoint = "/sheets/products/type&model" + "/" + productTypes[filters.type] + "/" + filters.model.split(" ").pop();
         }
 
         if (newApiEndpoint !== apiEndpoint) {

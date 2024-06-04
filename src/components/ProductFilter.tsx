@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaAngleDown } from "react-icons/fa6";
@@ -17,39 +17,110 @@ interface ProductFilterProps {
     onClearFilters: () => void;
 }
 
+interface ModelsData {
+    [key: string]: string[];
+}
+
+const bmwModels: string[] = [
+    "Series 1 F20",
+    "Series 2 F22",
+    "Series 3 E90",
+    "Series 3 E92",
+    "Series 3 E93",
+    "Series 3 F30",
+    "Series 3 GT F34",
+    "Series 3 G20",
+    "Series 4 F32",
+    "Series 4 F33",
+    "Series 5 E39",
+    "Series 5 E60",
+    "Series 5 F10",
+    "Series 5 F11",
+    "Series 5 G30",
+    "Series 6 G32",
+    "Series 7 E66",
+    "Series 7 F02",
+    "X1 E84",
+    "X1 F48",
+    "X3 E83",
+    "X3 F25",
+    "X3 G01",
+    "X4 F26",
+    "X5 E70",
+    "X5 F15",
+    "X6 E71",
+    "X6 F16"
+];
+
+const benzModels: string[] = [
+    "A-Class W176",
+    "B-Class W246",
+    "C-Class W203",
+    "C-Class W204",
+    "C-Class W205",
+    "CLA W117",
+    "CLS W218",
+    "CLS W219",
+    "E-Class W211",
+    "E-Class W212",
+    "E-Class W213",
+    "E-Coupe W207",
+    "E-Coupe W238",
+    "GLA W156",
+    "GLC W253",
+    "GLK X204",
+    "S-Class W220",
+    "S-Class W221",
+    "S-Class W222",
+    "SL R230",
+    "SLK R172"
+];
+
+const miniModels: string[] = [
+    "Clubman F54",
+    "Countryman F60",
+    "Countryman R60",
+    "F55",
+    "F56",
+    "R56"
+];
+
+const modelsData: ModelsData = {
+    BMW: bmwModels,
+    Benz: benzModels,
+    MINI: miniModels,
+    default: [...bmwModels, ...benzModels, ...miniModels]
+};
+
 export default function ProductFilter({ filters, onApplyFilters, onClearFilters }: ProductFilterProps) {
     const [isOpen, setIsOpen] = useState(true);
     const [selectedType, setSelectedType] = useState(filters.type);
     const [selectedBrand, setSelectedBrand] = useState(filters.brand);
     const [selectedModel, setSelectedModel] = useState(filters.model);
+    const [availableModels, setAvailableModels] = useState<string[]>(modelsData.default);
+
+    useEffect(() => {
+        if (selectedBrand) {
+            setAvailableModels(modelsData[selectedBrand] || modelsData.default);
+        } else {
+            setAvailableModels(modelsData.default);
+        }
+    }, [selectedBrand]);
 
     const toggleFilter = () => {
         setIsOpen(!isOpen);
     };
 
     const handleTypeChange = (type: string) => {
-        if (type === "ประเภทอะไหล่") {
-            setSelectedType("");
-        } else {
-            setSelectedType(type);
-        }
+        setSelectedType(type === "ประเภทอะไหล่" ? "" : type);
     };
 
     const handleBrandChange = (brand: string) => {
-        if (brand === "แบรนด์รถยนต์") {
-            setSelectedBrand("");
-        } else {
-            setSelectedBrand(brand);
-        }
-        
+        setSelectedBrand(brand === "แบรนด์รถยนต์" ? "" : brand);
     };
 
     const handleModelChange = (model: string) => {
-        if (model === "รุ่นรถยนต์") {
-            setSelectedModel("");
-        } else {
-            setSelectedModel(model);
-        }
+        setSelectedModel(model === "รุ่นรถยนต์" ? "" : model);
     };
 
     const applyButton = () => {
@@ -82,7 +153,7 @@ export default function ProductFilter({ filters, onApplyFilters, onClearFilters 
                     <h1 className="font-notothai font-semibold">กรองสินค้า</h1>
                     <Dropdown buttonText="ประเภทอะไหล่" contents={["อะไหล่ภายใน", "อะไหล่ภายนอก", "อะไหล่ช่วงล่าง"]} selected={filters.type} onSelect={handleTypeChange} />
                     <Dropdown buttonText="แบรนด์รถยนต์" contents={["BMW", "Benz", "MINI"]} selected={filters.brand} onSelect={handleBrandChange} />
-                    <Dropdown buttonText="รุ่นรถยนต์" contents={["item 1", "item 2", "item 3", "item 4", "item 5", "item 6"]} selected={filters.model} onSelect={handleModelChange} />
+                    <Dropdown buttonText="รุ่นรถยนต์" contents={availableModels} selected={filters.model} onSelect={handleModelChange} />
                     <button
                         className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-sky-400 rounded hover:indigo-600 group h-[2.625rem] w-32"
                         onClick={applyButton}
@@ -123,7 +194,7 @@ export default function ProductFilter({ filters, onApplyFilters, onClearFilters 
                             <div className="flex flex-col justify-evenly items-center">
                                 <Dropdown buttonText="ประเภทอะไหล่" contents={["อะไหล่ภายใน", "อะไหล่ภายนอก", "อะไหล่ช่วงล่าง"]} selected={filters.type} onSelect={handleTypeChange} />
                                 <Dropdown buttonText="แบรนด์รถยนต์" contents={["BMW", "Benz", "MINI"]} selected={filters.brand} onSelect={handleBrandChange} />
-                                <Dropdown buttonText="รุ่นรถยนต์" contents={["item 1", "item 2", "item 3", "item 4", "item 5", "item 6"]} selected={filters.model} onSelect={handleModelChange} />
+                                <Dropdown buttonText="รุ่นรถยนต์" contents={availableModels} selected={filters.model} onSelect={handleModelChange} />
                                 <button
                                     className="relative inline-flex items-center justify-center overflow-hidden font-medium transition-all bg-sky-400 rounded hover:indigo-600 group h-[2.625rem] w-32 my-2"
                                     onClick={applyButton}
