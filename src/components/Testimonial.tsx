@@ -21,6 +21,20 @@ import Slider5 from '../assets/testimonials/image5.jpeg';
 import Slider6 from '../assets/testimonials/image6.jpeg';
 import Slider7 from '../assets/testimonials/image7.jpeg';
 import Slider8 from '../assets/testimonials/image8.jpeg';
+import Slider9 from '../assets/testimonials/image9.jpeg';
+import Slider10 from '../assets/testimonials/image10.jpeg';
+import Slider11 from '../assets/testimonials/image11.jpeg';
+import Slider12 from '../assets/testimonials/image12.jpeg';
+import Slider13 from '../assets/testimonials/image13.jpeg';
+import Slider14 from '../assets/testimonials/image14.jpeg';
+import Slider15 from '../assets/testimonials/image15.jpeg';
+import Slider16 from '../assets/testimonials/image16.jpeg';
+import Slider17 from '../assets/testimonials/image17.jpeg';
+import Slider18 from '../assets/testimonials/image18.jpeg';
+import Slider19 from '../assets/testimonials/image19.jpeg';
+import Slider20 from '../assets/testimonials/image20.jpeg';
+import Slider21 from '../assets/testimonials/image21.jpeg';
+import Slider22 from '../assets/testimonials/image22.jpeg';
 
 import { RiDoubleQuotesL } from "react-icons/ri";
 import lazadaReview from '../assets/testimonials/lazada-review.jpeg';
@@ -34,7 +48,7 @@ import Reveal from "../animations/Reveal";
 export default function Testimonial() {
 
     const TestimonialImages = [ Lazada1, Shopee1, Lazada2, Shopee2, Lazada3, Lazada4, Shopee3, Fb1, Lazada5, Shopee4, Lazada6, Lazada7, Shopee5, Shopee6, Fb2 ];
-    const SliderImages = [ Slider1, Slider2, Slider3, Slider4, Slider5, Slider6, Slider7, Slider8 ];
+    const SliderImages = [ Slider1, Slider2, Slider3, Slider4, Slider5, Slider6, Slider7, Slider8, Slider9, Slider10, Slider22, Slider11, Slider12, Slider13, Slider14, Slider15, Slider16, Slider17, Slider18, Slider19, Slider20, Slider21 ];
 
     return (
         <div className="bg-gray-300">

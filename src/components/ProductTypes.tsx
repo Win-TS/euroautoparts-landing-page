@@ -1,7 +1,7 @@
-import undercoverBackground from "../assets/heroCaurosel/hero2.jpeg";
-import wheelhousingBackground from "../assets/heroCaurosel/hero5.jpeg";
-import interiorBackground from "../assets/heroCaurosel/hero4.jpeg";
-import suspensionBackground from "../assets/heroCaurosel/hero3.jpeg";
+import undercoverBackground from "../assets/productTypes/undercoverBackground.jpeg";
+import wheelhousingBackground from "../assets/productTypes/wheelhousingBackground.jpeg";
+import suspensionBackground from "../assets/productTypes/suspensionBackground.jpeg";
+import interiorBackground from "../assets/productTypes/interiorBackground.jpeg";
 
 import { useState } from "react";
 import Reveal from "../animations/Reveal";
