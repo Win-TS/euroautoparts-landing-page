@@ -102,7 +102,7 @@ function ProductCard({ name, type, brand, car, color, price, image }: ProductCar
 
     return (
         <div className="flex flex-col items-center bg-slate-200 rounded-lg py-2 w-72 gap-1">
-            <img src={image} alt={name} className="w-48 h-72 object-cover rounded-lg my-2 flex-start" />
+            <img src={image} alt={name} className="w-52 h-72 object-contain my-2 flex-start" />
             <div className={`flex flex-col items-center justify-between `}>
                 <h1 className={`text-xl font-notothai font-bold text-center ${!color && "py-3.5"}`}>
                     {name} {color && <><br /><span className="text-md font-notothai">{color}</span></>}
