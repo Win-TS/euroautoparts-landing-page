@@ -1,12 +1,14 @@
 import Reveal from '../animations/Reveal';
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
+const img_base_url = "https://lh5.googleusercontent.com/d/";
+
 const products = [
     {
         productName: "ชุดมือจับประตู BMW F10 สีเลือดนก",
         productPrice: 1610,
         productImage:
-        "https://scontent.fbkk8-4.fna.fbcdn.net/v/t39.30808-6/235876832_144295761221855_7642462335423803260_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=JkLUJcwDiz0Q7kNvgHXncEW&_nc_ht=scontent.fbkk8-4.fna&oh=00_AYCzUDHaZEOM0ffiwZJOn5-VSsKnD7H_7duwH-cRO8eJTQ&oe=66639970",
+        `${img_base_url}178-TFZjxWKdzrOO-8yuPIkGgAKZtDqeN`,
         type: "อะไหล่ภายใน",
         description: "มือจับ",
     },
@@ -14,7 +16,7 @@ const products = [
         productName: "ชุดช่วงล่าง BMW F10 หน้าหลัง 16 ชิ้น",
         productPrice: 26920,
         productImage:
-        "https://scontent.fbkk12-3.fna.fbcdn.net/v/t39.30808-6/291610598_359275403057222_884192158451384545_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=7iJDHraz3joQ7kNvgFdnj6p&_nc_ht=scontent.fbkk12-3.fna&oh=00_AYCmdsYNxkjHTnkoUpgi9DGik4L59384Kfs64eiM7l1H6w&oe=66639DF2",
+        `${img_base_url}1TQ0ZDpqnYJDHVHPk5INym7TUlxeO0dw0`,
         type: "อะไหล่ช่วงล่าง",
         description: "ชุดช่วงล่าง",
     },
@@ -22,7 +24,7 @@ const products = [
         productName: "แผ่นปิดใต้รถชิ้นใต้เกียร์ BMW F10",
         productPrice: 1890,
         productImage:
-        "https://scontent.fbkk13-3.fna.fbcdn.net/v/t39.30808-6/237365714_144296007888497_5871318312158929169_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eWxpydgK_-gQ7kNvgHiIykA&_nc_ht=scontent.fbkk13-3.fna&oh=00_AYCcfooZkup2WblF31RWCOcyMSX0htK5ksldt2Tu_1XvtQ&oe=6663910E",
+        `${img_base_url}1rEkTFgzdZi89tiEbW1in-GP2_E3iWoeE`,
         type: "อะไหล่ภายนอก",
         description: "แผ่นปิดใต้ท้อง",
     },
@@ -30,7 +32,7 @@ const products = [
         productName: "ชุดมือจับประตู BMW X3 F25 สีดำ",
         productPrice: 1900,
         productImage:
-        "https://scontent.fbkk8-4.fna.fbcdn.net/v/t39.30808-6/297512397_382571660727596_4932585020432373393_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=hMOltFy8KPYQ7kNvgHsTRp3&_nc_ht=scontent.fbkk8-4.fna&oh=00_AYAdI8Ea1nQ3SRzQfk-MjkAE7BUG9oNJsWbU2JzsR_35qQ&oe=66639FE5",
+        `${img_base_url}1bwJsEhE5ETVmygl1YbGqJXrRyAWnHKgm`,
         type: "อะไหล่ภายใน",
         description: "มือจับ",
     },
@@ -38,7 +40,7 @@ const products = [
         productName: "แผ่นปิดใต้ท้องชิ้นซ้าย/ขวา Benz W212",
         productPrice: 1790,
         productImage:
-        "https://scontent.fbkk13-1.fna.fbcdn.net/v/t39.30808-6/305458043_392713586369335_3808544375412916123_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=5JyqrF3MjmoQ7kNvgEqmUx9&_nc_ht=scontent.fbkk13-1.fna&oh=00_AYC41iU1R5HhXH2Vq2hTERUtUFdsSGlzHVLsFyaXv9SM5g&oe=66638A34",
+        `${img_base_url}1Bo34YuxvjUUp66H_9k98HbCBNc8-K42b`,
         type: "อะไหล่ภายนอก",
         description: "แผ่นปิดใต้ท้อง",
     },
@@ -46,7 +48,7 @@ const products = [
         productName: "ซุ้มล้อหน้าชิ้นหน้าซ้าย/ขวา BMW F30/F32/F34",
         productPrice: 690,
         productImage:
-        "https://scontent.fbkk12-2.fna.fbcdn.net/v/t39.30808-6/236826408_144299024554862_8380723947510057587_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=6xMz9ZgS1ygQ7kNvgHQLMUy&_nc_ht=scontent.fbkk12-2.fna&oh=00_AYC2dKApVqHv80w35nBdKPwirgvsCVhooLzyAx1scM6UQA&oe=6663B6A4",
+        `${img_base_url}1zgtu7ClIku3d5BrhIsOkBy7qQVMCkt96`,
         type: "อะไหล่ภายนอก",
         description: "ซุ้มล้อ",
     },
@@ -54,7 +56,7 @@ const products = [
         productName: "ลูกหมากคันชัก BMW E90/E92/E93",
         productPrice: 1030,
         productImage:
-        "https://scontent.fbkk13-3.fna.fbcdn.net/v/t39.30808-6/280241463_321715130146583_4929508705960759115_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=I2vB0umDcUUQ7kNvgGMhOli&_nc_ht=scontent.fbkk13-3.fna&oh=00_AYDVXGzvwwHnWkYLz8Tfpm50zKwEU7GJKp6T-_uRyNG3Mg&oe=6663AAF8",
+        `${img_base_url}1-MR43UhfEVBcN9qWFrvlNY2e05Wf3NAw`,
         type: "อะไหล่ช่วงล่าง",
         description: "ลูกหมาก",
     },
@@ -62,7 +64,7 @@ const products = [
         productName: "แผ่นปิดใต้เครื่องชิ้นหน้า Benz W211",
         productPrice: 1380,
         productImage:
-        "https://scontent.fbkk12-2.fna.fbcdn.net/v/t39.30808-6/304978825_392708369703190_5693490141714076168_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Lqm6IhrRN8AQ7kNvgFQqA0Z&_nc_ht=scontent.fbkk12-2.fna&oh=00_AYDkA9tjkIQT8SkuCG6TF6m4Xz_Wg1HwzYmfvs30Li06yw&oe=6663A9B1",
+        `${img_base_url}1V4idYzBtW71nycHy1Ad7UWnd4Kx4FhqK`,
         type: "อะไหล่ภายนอก",
         description: "แผ่นปิดใต้ท้อง",
     },
@@ -70,7 +72,7 @@ const products = [
         productName: "ปีกนกตัวบน Benz W204/W207",
         productPrice: 2040,
         productImage:
-        "https://scontent.fbkk8-2.fna.fbcdn.net/v/t39.30808-6/323777599_1191649341494638_6793415093792700936_n.jpg?stp=cp6_dst-jpg&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=nQmRT94UC3wQ7kNvgE7bqo3&_nc_ht=scontent.fbkk8-2.fna&oh=00_AYC6jJJgJ8wKOYVlj_ON9ONx5RQhwo_CSnUQ5e_v5znxDw&oe=6663A506",
+        `${img_base_url}1uBfCOorT0CmEKXOCmW_aSQjUV4GMHa8y`,
         type: "อะไหล่ช่วงล่าง",
         description: "ปีกนก",
     },
@@ -78,7 +80,7 @@ const products = [
         productName: "กรอบแอร์กลาง BMW F10",
         productPrice: 990,
         productImage:
-        "https://scontent.fbkk12-3.fna.fbcdn.net/v/t39.30808-6/264450736_222471743404256_4749467604474874124_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=uWpspvw6rxoQ7kNvgFPQZCU&_nc_ht=scontent.fbkk12-3.fna&oh=00_AYB20KjMarEHsYA1R2FFsSnh3Gvdb8HGEbm1ePmWmrvQnA&oe=666389FE",
+        `${img_base_url}1OPi16A8hB0Bi9PK4A8QpamVgf-_Abudc`,
         type: "อะไหล่ภายใน",
         description: "กรอบแอร์",
     },
@@ -86,7 +88,7 @@ const products = [
         productName: "สวิทช์หมุนไฟหน้า BMW F10",
         productPrice: 850,
         productImage:
-        "https://scontent.fbkk12-3.fna.fbcdn.net/v/t39.30808-6/272888080_258079739843456_7490920796765505226_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yyVF8E9cWZYQ7kNvgGkWpHQ&_nc_ht=scontent.fbkk12-3.fna&oh=00_AYA4FR_8zSRHLlTdcA6svJXszArw8yAz-JmHDby6RkJMMw&oe=6663A204",
+        `${img_base_url}1kaJ3Uu4k7Bp-NTJ1hrMpw_NCNNygOqkw`,
         type: "อะไหล่ภายใน",
         description: "ปุ่ม/สวิทช์",
     },
@@ -94,7 +96,7 @@ const products = [
         productName: "ชุดมือจับประตู BMW F30 สีดำ",
         productPrice: 1500,
         productImage:
-        "https://scontent.fbkk13-3.fna.fbcdn.net/v/t39.30808-6/236275340_144298787888219_8243449792511754318_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=91HveYevSDcQ7kNvgHm31zD&_nc_ht=scontent.fbkk13-3.fna&oh=00_AYB1Ow74wN1ek_lM-IicNbHAPIZNXoCUo26SVV2EeexNlQ&oe=66639CA9",
+        `${img_base_url}1var5XDh8d70zFs3AnO7ybwyIHYRFOJ41`,
         type: "อะไหล่ภายใน",
         description: "มือจับ",
     },
@@ -102,7 +104,7 @@ const products = [
         productName: "แผ่นปิดกันฝุ่นห้องเครื่องซ้าย/ขวา BMW F10",
         productPrice: 1280,
         productImage:
-        "https://scontent.fbkk13-1.fna.fbcdn.net/v/t39.30808-6/247715495_192679823050115_6289139667429656324_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=etts09wifYkQ7kNvgF9pXxq&_nc_ht=scontent.fbkk13-1.fna&oh=00_AYB5_mC07m9GxhXypmM5W9dhsaYhtT9FlVrsRsXMF9rXog&oe=66638D8A",
+        `${img_base_url}1vSZKCsAAxdisNr0QVQ3kG-QZogcudJpt`,
         type: "อะไหล่ภายนอก",
         description: "แผ่นห้องเครื่อง",
     },
@@ -110,7 +112,7 @@ const products = [
         productName: "ลูกหมากกันโคลง BMW F30/F32/F34",
         productPrice: 590,
         productImage:
-        "https://scontent.fbkk8-4.fna.fbcdn.net/v/t39.30808-6/280251088_321714786813284_2945980415723726680_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=iM9g_4UVsoUQ7kNvgHWWxRk&_nc_ht=scontent.fbkk8-4.fna&oh=00_AYCI5ntkdEbYmamwA1AODJcdvTR35PBW1Kgds2EscQ0Iww&oe=6663961A",
+        `${img_base_url}1EZzSmSeTWX7XRiDXm7-J1n9OafoRmR81`,
         type: "อะไหล่ช่วงล่าง",
         description: "ลูกหมาก",
     },
@@ -118,7 +120,7 @@ const products = [
         productName: "ซุ้มล้อหน้า MINI R56",
         productPrice: 1450,
         productImage:
-        "https://scontent.fbkk12-3.fna.fbcdn.net/v/t39.30808-6/287711883_346622650989164_8525119335510950240_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ZbFZWZONJkcQ7kNvgHl3V73&_nc_ht=scontent.fbkk12-3.fna&oh=00_AYAXUWn19msnHNjkrzj0ZBDiNoeR7_sdXBgfcT1dLpjr9Q&oe=6663AA20",
+        `${img_base_url}1EPEFNU4HY_zdFFxNfkm8s7SP5rWLkJ-2`,
         type: "อะไหล่ภายนอก",
         description: "ซุ้มล้อ",
     },
@@ -126,7 +128,7 @@ const products = [
         productName: "ขอบซุ้มล้อหน้า/หลัง MINI R60",
         productPrice: 1450,
         productImage:
-        "https://scontent.fbkk12-4.fna.fbcdn.net/v/t39.30808-6/287962779_346622514322511_4430560273904322421_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=A1p2wO3omGEQ7kNvgGR2_Q-&_nc_ht=scontent.fbkk12-4.fna&oh=00_AYARQojGmLfaZApIFPOLteEv1bxpZh_6f-oR4h8ZPhq-dA&oe=6663AB32",
+        `${img_base_url}1g478LYZEbRZfWMKEUrzU9Y1I4JGYXmT2`,
         type: "อะไหล่ภายนอก",
         description: "ขอบซุ้มล้อ",
     },
@@ -134,7 +136,7 @@ const products = [
         productName: "แผ่นปิดใต้รถชิ้นใต้เครื่อง BMW X1 E84",
         productPrice: 2300,
         productImage:
-        "https://scontent.fbkk12-3.fna.fbcdn.net/v/t39.30808-6/287972305_346617217656374_8518420400243652562_n.jpg?stp=dst-jpg_p960x960&_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=45P8j1fjG2QQ7kNvgFCoiug&_nc_ht=scontent.fbkk12-3.fna&oh=00_AYDYu_Pc4gmDlZ9K9LGatVaeqElA0LZGzdxlcXxyf3Bgvw&oe=66638445",
+        `${img_base_url}1i2tBUb6qKJE2QjLsB9B119e97Gv9VUpc`,
         type: "อะไหล่ภายนอก",
         description: "แผ่นปิดใต้ท้อง",
     },
