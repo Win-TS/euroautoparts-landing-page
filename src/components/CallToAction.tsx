@@ -52,7 +52,7 @@ export default function CallToAction() {
         });
         axios({
             method: "POST",
-            baseURL: import.meta.env.VITE_API_URL,
+            baseURL: process.env.VITE_API_URL,
             url: "/sheets/lead",
             data: newLead
         })
