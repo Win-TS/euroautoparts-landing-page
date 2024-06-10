@@ -101,13 +101,13 @@ function ProductCard({ name, type, brand, car, color, price, image }: ProductCar
         : "bg-gray-500";
 
     return (
-        <div className="flex flex-col items-center bg-slate-200 rounded-lg py-2 w-72 gap-1">
+        <div className="flex flex-col items-center bg-slate-200 rounded-lg py-2 w-80 gap-1">
             <img src={image} alt={name} className="w-52 h-72 object-contain my-2 flex-start" />
             <div className={`flex flex-col items-center justify-between `}>
                 <h1 className={`text-xl font-notothai font-bold text-center ${!color && "py-3.5"}`}>
                     {name} {color && <><br /><span className="text-md font-notothai">{color}</span></>}
                 </h1>
-                <p className="text-md font-notothai font-semibold">{brand + " " + car}</p>
+                <p className="text-md font-notothai font-semibold text-center">{brand + " " + car}</p>
                 <p className="text-md font-notothai text-center flex items-center">
                     <span className={`w-2 h-2 rounded-full mr-2 ${markerColor}`}></span>
                     {type}
