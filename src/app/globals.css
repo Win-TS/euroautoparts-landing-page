@@ -3,8 +3,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+@layer base {
+    @font-face {
+        font-family: 'LINESeedSansTHRegular';
+        src: url(../../static/fonts/LINESeedSansTH_A_Rg.ttf);
+    }
 
-@font-face {
+    @font-face {
+        font-family: 'LINESeedSansTHBold';
+        src: url(../../static/fonts/LINESeedSansTH_A_XBd.ttf);
+    }
+} */
+
+/* @font-face {
     font-family: 'LINESeedSansTHRegular';
     src: url(../static/fonts/LINESeedSansTH_A_Rg.ttf);
 }
@@ -12,4 +24,4 @@
 @font-face {
     font-family: 'LINESeedSansTHBold';
     src: url(../static/fonts/LINESeedSansTH_A_Bd.ttf);
-}
+} */

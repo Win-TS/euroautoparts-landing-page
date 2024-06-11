@@ -37,6 +37,7 @@ export default function PaginateProduct({ totalPages, currentPage, setCurrentPag
                 containerClassName={"flex items-center space-x-2 md:space-x-3 justify-center my-3"}
                 pageClassName="block font-notothai hover:bg-gray-300 transition-color ease-in duration-200 rounded-md w-8 h-8 md:w-10 md:h-10 flex items-center justify-center"
                 activeClassName="bg-blue-400 hover:bg-blue-500 transition-color ease-in duration-200 text-white"
+                forcePage={currentPage}
             />
         </div>
     )
