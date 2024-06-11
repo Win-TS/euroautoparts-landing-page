@@ -1,19 +1,9 @@
-import heroImage1 from '../../assets/heroCaurosel/hero1.jpeg';
-import heroImage2 from '../../assets/heroCaurosel/hero2.jpeg';
-import heroImage3 from '../../assets/heroCaurosel/hero3.jpeg';
-import heroImage4 from '../../assets/heroCaurosel/hero4.jpeg';
-import heroImage5 from '../../assets/heroCaurosel/hero5.jpeg';
-import heroImage6 from '../../assets/heroCaurosel/hero6.jpeg';
-import heroImage7 from '../../assets/heroCaurosel/hero7.jpeg';
-import heroImage8 from '../../assets/heroCaurosel/hero8.jpeg';
-import heroImage9 from '../../assets/heroCaurosel/hero9.jpeg';
-import heroImage10 from '../../assets/heroCaurosel/hero10.jpeg';
 import Reveal from './animations/Reveal';
 import HeroCarousel from './animations/HeroCaurosel';
 import BackgroundCarousel from './animations/BackgroundCaurosel';
 
 export default function Hero() {
-    const images = [heroImage1.src, heroImage2.src, heroImage3.src, heroImage4.src, heroImage5.src, heroImage6.src, heroImage7.src, heroImage8.src, heroImage9.src, heroImage10.src];
+    const images = ['/assets/heroCaurosel/hero1.jpeg', '/assets/heroCaurosel/hero2.jpeg', '/assets/heroCaurosel/hero3.jpeg', '/assets/heroCaurosel/hero4.jpeg', '/assets/heroCaurosel/hero5.jpeg', '/assets/heroCaurosel/hero6.jpeg', '/assets/heroCaurosel/hero7.jpeg', '/assets/heroCaurosel/hero8.jpeg', '/assets/heroCaurosel/hero9.jpeg', '/assets/heroCaurosel/hero10.jpeg'];
 
     return (
         <>

@@ -1,6 +1,5 @@
 "use client"
 
-import logo from '../../assets/logo/euroautoparts-logo.png';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 
@@ -11,7 +10,7 @@ export default function Footer() {
         <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center'>
             <div className="grid items-center h-28 md:h-56">
                 <div className="text-center content-center justify-center align-center">
-                    <img src={logo.src} className="w-80"></img>
+                    <img src={'/assets/logo/euroautoparts-logo.png'} className="w-80"></img>
                     <p className="text-sm text-black font-notothai">© 2024 EuroAutoParts. All rights reserved</p>
                 </div>
             </div>

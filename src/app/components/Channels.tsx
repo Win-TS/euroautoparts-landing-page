@@ -1,7 +1,3 @@
-import LineLogo from '../../assets/logo/line_logo.png';
-import FacebookLogo from '../../assets/logo/facebook_logo.png';
-import ShopeeLogo from '../../assets/logo/shopee_logo.png';
-import LazadaLogo from '../../assets/logo/lazada_logo.png';
 import Reveal from './animations/Reveal';
 
 export default function Channels() {
@@ -15,22 +11,22 @@ export default function Channels() {
                     </div>
                     <div className="p-3 flex justify-center items-center w-48">
                         <a href="https://line.me/R/ti/p/@902vqfcp?oat_content=url" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
-                            <img src={LineLogo.src} alt="Line" />
+                            <img src={'/assets/logo/line_logo.png'} alt="Line" />
                         </a>
                     </div>
                     <div className="p-3 flex justify-center items-center w-48">
                         <a href="https://www.facebook.com/EuroAutoPartsTH/" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
-                            <img src={FacebookLogo.src} alt="Facebook" />
+                            <img src={'/assets/logo/facebook_logo.png'} alt="Facebook" />
                         </a>
                     </div>
                     <div className="p-3 flex justify-center items-center w-48">
                         <a href="https://shopee.co.th/euroautopartsth" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
-                            <img src={ShopeeLogo.src} alt="Shopee" />
+                            <img src={'/assets/logo/shopee_logo.png'} alt="Shopee" />
                         </a>
                     </div>
                     <div className="p-3 flex justify-center items-center w-48">
                         <a href="https://www.lazada.co.th/shop/euroautoparts" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
-                            <img src={LazadaLogo.src} alt="Lazada" />
+                            <img src={'/assets/logo/lazada_logo.png'} alt="Lazada" />
                         </a>
                     </div>
                 </div>
@@ -43,22 +39,22 @@ export default function Channels() {
                     <div className="grid grid-cols-4 gap-1 px-2">
                         <div className="p-3 flex justify-center items-center w-auto">
                             <a href="https://line.me/R/ti/p/@902vqfcp?oat_content=url" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
-                                <img src={LineLogo.src} alt="Line" />
+                                <img src={'/assets/logo/line_logo.png'} alt="Line" />
                             </a>
                         </div>
                         <div className="p-3 flex justify-center items-center">
                             <a href="https://www.facebook.com/EuroAutoPartsTH/" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
-                                <img src={FacebookLogo.src} alt="Facebook" />
+                                <img src={'/assets/logo/facebook_logo.png'} alt="Facebook" />
                             </a>
                         </div>
                         <div className="p-3 flex justify-center items-center">
                             <a href="https://shopee.co.th/euroautopartsth" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
-                                <img src={ShopeeLogo.src} alt="Shopee" />
+                                <img src={'/assets/logo/shopee_logo.png'} alt="Shopee" />
                             </a>
                         </div>
                         <div className="p-3 flex justify-center items-center">
                             <a href="https://www.lazada.co.th/shop/euroautoparts" target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
-                                <img src={LazadaLogo.src} alt="Lazada" />
+                                <img src={'/assets/logo/lazada_logo.png'} alt="Lazada" />
                             </a>
                         </div>
                     </div>

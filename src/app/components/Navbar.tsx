@@ -5,7 +5,6 @@ import { Spin as Hamburger } from 'hamburger-react';
 import { Transition } from '@headlessui/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
-import logo from '../../assets/logo/euroautoparts-logo.png';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +17,7 @@ export default function Navbar() {
     return (
         <nav className='py-3 px-5 z-50 bg-white fixed w-full'>
             <div className='flex items-center justify-between'>
-                <img src={logo.src} width={200} className='z-50' />
+                <img src={'/assets/logo/euroautoparts-logo.png'} width={200} className='z-50' />
                 <div className='md:hidden z-50'>
                     <Hamburger toggled={isMenuOpen} toggle={toggleMenu} size={25} />
                 </div>

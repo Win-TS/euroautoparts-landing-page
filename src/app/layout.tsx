@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
 const lineFont = localFont({
-    src: "../../static/fonts/LINESeedSansTH_A_Rg.ttf",
+    src: "../../public/fonts/LINESeedSansTH_A_Rg.ttf",
     variable: "--font-lineseedsans"
 });
 

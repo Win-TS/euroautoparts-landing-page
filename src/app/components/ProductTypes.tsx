@@ -1,8 +1,3 @@
-import undercoverBackground from "../../assets/productTypes/undercoverBackground.jpeg";
-import wheelhousingBackground from "../../assets/productTypes/wheelhousingBackground.jpeg";
-import suspensionBackground from "../../assets/productTypes/suspensionBackground.jpeg";
-import interiorBackground from "../../assets/productTypes/interiorBackground.jpeg";
-
 import { useState } from "react";
 import Reveal from "./animations/Reveal";
 import { IoCloseCircleOutline } from "react-icons/io5";
@@ -26,7 +21,7 @@ export default function ProductTypes() {
             type="แผ่นปิดใต้ท้องรถ"
             cars="BMW, Benz, MINI"
             description="ช่วยป้องกันการกระแทกของสิ่งต่างๆจากพื้นถนน, ช่วยระบายความร้อนภายใต้ตัวรถรวมถึงสามารถช่วยลดแรงเสียดทานของอากาศส่งผลให้ประหยัดน้ำมันมากขึ้น"
-            background={undercoverBackground.src}
+            background={"/assets/productTypes/undercoverBackground.jpeg"}
           />
         </Reveal>
         <Reveal className="place-self-center md:place-self-start 3xl:place-self-center">
@@ -34,7 +29,7 @@ export default function ProductTypes() {
             type="พลาสติกซุ้มล้อ"
             cars="BMW, Benz, MINI"
             description="ช่วยป้องกันสิ่งสกปรก เช่น เศษ หิน ดิน โคลน และ ของเหลว จากภายนอกไม่ให้เข้ามาติดกับช่วงล่างของรถยนต์ รวมถึงยังช่วยป้องกันความเสียหายจากเศษหินที่จะเกิดขึ้นกับรถยนต์ได้ด้วย"
-            background={wheelhousingBackground.src}
+            background={"/assets/productTypes/wheelhousingBackground.jpeg"}
           />
         </Reveal>
         <Reveal className="place-self-center md:place-self-end 3xl:place-self-center">
@@ -42,7 +37,7 @@ export default function ProductTypes() {
             type="ช่วงล่าง ประเภทปีกนก ลูกหมาก"
             cars="BMW, Benz, MINI"
             description="ปีกนกเป็นระบบรองรับแรงสะเทือนซึ่งปกติจะติดตั้งไว้ใกล้กับแกนล้อโดยจะใช้ลูกหมากเป็นตัวเชื่อมต่อและทำให้ปีกนกสามารถรับการเคลื่อนไหวของรถได้ เมื่อใช้ของเดิมไปในระยะเวลานานๆ ตัวช่วงล่างจะเสื่อสภาพและเริ่มมีเสียงและกระแทกขณะขับขี่ การเปลี่ยนปีกนกและลูกหมากจะทำให้รถยนต์มีเสียงจากช่วงล่างน้อยลงและรู้สึกขับได้สบายยิ่งขึ้น"
-            background={suspensionBackground.src}
+            background={"/assets/productTypes/suspensionBackground.jpeg"}
           />
         </Reveal>
         <Reveal className="place-self-center md:place-self-start 3xl:place-self-center">
@@ -50,7 +45,7 @@ export default function ProductTypes() {
             type="อะไหล่ภายใน"
             cars="BMW"
             description="มือจับประตู กรอบแอร์ และอุปกรณ์ภายในต่างๆของ BMW เมื่อใช้ไปสักระยะเวลาหนึ่งจะเริ่มเหนียวติดมือ หัก กรอบ หรือลอก สินค้าทางร้านเราขายอะไหล่ภายในที่เป็นวัสดุชนิดที่จะไม่เหนียว กรอบ หักในอนาคตแต่เกรดเทียบกับของแท้ได้เลย"
-            background={interiorBackground.src}
+            background={"/assets/productTypes/interiorBackground.jpeg"}
           />
         </Reveal>
       </div>
