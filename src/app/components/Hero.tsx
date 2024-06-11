@@ -8,9 +8,9 @@ import heroImage7 from '../../assets/heroCaurosel/hero7.jpeg';
 import heroImage8 from '../../assets/heroCaurosel/hero8.jpeg';
 import heroImage9 from '../../assets/heroCaurosel/hero9.jpeg';
 import heroImage10 from '../../assets/heroCaurosel/hero10.jpeg';
-import Reveal from '../components/animations/Reveal';
-import HeroCarousel from '../components/animations/HeroCaurosel';
-import BackgroundCarousel from '../components/animations/BackgroundCaurosel';
+import Reveal from './animations/Reveal';
+import HeroCarousel from './animations/HeroCaurosel';
+import BackgroundCarousel from './animations/BackgroundCaurosel';
 
 export default function Hero() {
     const images = [heroImage1.src, heroImage2.src, heroImage3.src, heroImage4.src, heroImage5.src, heroImage6.src, heroImage7.src, heroImage8.src, heroImage9.src, heroImage10.src];

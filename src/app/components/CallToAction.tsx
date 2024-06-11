@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import Reveal from "../components/animations/Reveal";
+import Reveal from "./animations/Reveal";
 
 export default function CallToAction() {
     const [data, setData] = useState({
@@ -52,7 +52,7 @@ export default function CallToAction() {
         });
         axios({
             method: "POST",
-            baseURL: process.env.VITE_API_URL,
+            baseURL: process.env.NEXT_PUBLIC_API_URL,
             url: "/sheets/lead",
             data: newLead
         })

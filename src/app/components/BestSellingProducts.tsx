@@ -1,4 +1,4 @@
-import Reveal from '../components/animations/Reveal';
+import Reveal from './animations/Reveal';
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
 const img_base_url = "https://lh5.googleusercontent.com/d/";

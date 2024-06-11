@@ -2,7 +2,7 @@ import LineLogo from '../../assets/logo/line_logo.png';
 import FacebookLogo from '../../assets/logo/facebook_logo.png';
 import ShopeeLogo from '../../assets/logo/shopee_logo.png';
 import LazadaLogo from '../../assets/logo/lazada_logo.png';
-import Reveal from '../components/animations/Reveal';
+import Reveal from './animations/Reveal';
 
 export default function Channels() {
     return (

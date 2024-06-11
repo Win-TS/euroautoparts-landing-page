@@ -1,12 +1,12 @@
-import type { Metadata } from "next"
+import localFont from "next/font/local"
 import "./globals.css"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 
-export const metadata: Metadata = {
-    title: "EuroAutoParts",
-    description: "EuroAutoParts",
-}
+const lineFont = localFont({
+    src: "../../static/fonts/LINESeedSansTH_A_Rg.ttf",
+    variable: "--font-lineseedsans"
+});
 
 export default function RootLayout({
     children,
@@ -14,7 +14,9 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" className={`${lineFont.variable}`}>
+            <title>EuroAutoParts</title>
+            <meta name="description" content="EuroAutoParts" /> 
             <head>
                 <link rel="icon" href="/favicon.ico" sizes="any" />
                 <link

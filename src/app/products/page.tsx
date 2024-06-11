@@ -1,36 +1,142 @@
 "use client"
 
-import { useState } from "react";
-import { FaCircleArrowUp } from "react-icons/fa6";
-import Reveal from "../components/animations/Reveal";
-import PaginateProduct from "../components/PaginateProduct";
-import ProductFilter from "../components/ProductFilter";
-import useProductFetcher from "../../hooks/useProductFetcher";
+import { useState, useEffect } from 'react';
+import { FaCircleArrowUp } from 'react-icons/fa6';
+import Reveal from '../components/animations/Reveal';
+import PaginateProduct from '../components/PaginateProduct';
+import ProductFilter from '../components/ProductFilter';
+import axios from 'axios';
+import ProductCard from '../components/ProductCard';
+import Swal from 'sweetalert2';
+
+interface Filters {
+    type: string;
+    brand: string;
+    model: string;
+}
+
+type Product = [
+    string, // id
+    string, // category
+    string, // brand
+    string, // model
+    string, // partNumber
+    string, // description
+    string, // color
+    number, // price
+    string  // imageUrl
+];
+
+interface FetchedData {
+    products: Product[];
+    totalPages: number;
+}
+
+async function fetchProducts(filters: Filters, currentPage: number) {
+    Swal.fire({
+        title: "<span class='font-notothai font-semibold'>กำลังโหลดข้อมูล...</span>",
+        html: "<span class='font-notothai'>โปรดรอสักครู่</span>",
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    const response: FetchedData = {
+        products: [],
+        totalPages: 0
+    }
+
+    const productTypes: { [key: string]: string } = {
+        "อะไหล่ภายใน": "interior",
+        "อะไหล่ภายนอก": "exterior",
+        "อะไหล่ช่วงล่าง": "suspension"
+    };
+
+    let apiEndpoint = "/sheets/products";
+
+    if (filters.type && !filters.brand && !filters.model) {
+        apiEndpoint = `/sheets/products/type/${productTypes[filters.type]}`;
+    } else if (!filters.type && filters.brand && !filters.model) {
+        apiEndpoint = `/sheets/products/brand/${filters.brand}`;
+    } else if (!filters.type && !filters.brand && filters.model) {
+        apiEndpoint = `/sheets/products/model/${filters.model.split(" ").pop()}`;
+    } else if (!filters.type && filters.brand && filters.model) {
+        apiEndpoint = `/sheets/products/model/${filters.model.split(" ").pop()}`;
+    } else if (filters.type && filters.brand && !filters.model) {
+        apiEndpoint = `/sheets/products/type&brand/${productTypes[filters.type]}/${filters.brand}`;
+    } else if (filters.type && filters.model) {
+        apiEndpoint = `/sheets/products/type&model/${productTypes[filters.type]}/${filters.model.split(" ").pop()}`;
+    }
+
+    try {
+        const pageCountResponse = await axios.get(process.env.NEXT_PUBLIC_API_URL + apiEndpoint + "/page-count", { params: { "limit": 16 } });
+        response.totalPages = pageCountResponse.data.pageCount;
+
+        if (pageCountResponse.data.pageCount === 0) {
+            response.products = [];
+        } else {
+            const page = Math.min(currentPage + 1, pageCountResponse.data.pageCount);
+            const productsResponse = await axios.get(process.env.NEXT_PUBLIC_API_URL + apiEndpoint + "/page", { params: { "pageNo": page, "limit": 16 } });
+            response.products = productsResponse.data.products;
+        }
+        Swal.close();
+    } catch (error) {
+        console.error(error);
+        Swal.fire({
+            title: "<span class='font-notothai font-semibold'>เกิดข้อผิดพลาด!</span>",
+            html: "<span class='font-notothai'>ไม่สามารถโหลดข้อมูลได้ โปรดลองอีกครั้ง</span>",
+            icon: "error"
+        });
+    }
+
+    return response;
+}
 
 export default function Page() {
     const [filters, setFilters] = useState({
-        type: "",
-        brand: "",
-        model: ""
+        type: '',
+        brand: '',
+        model: ''
     });
 
-    const applyFilters = (filter: { type: string; brand: string; model: string }) => {
+    const [data, setData] = useState<Product[]>([]);
+    const [totalPages, setTotalPages] = useState(1);
+    const [currentPage, setCurrentPage] = useState(0);
+
+    useEffect(() => {
+        const loadData = async () => {
+            const initialData: FetchedData = await fetchProducts(filters, currentPage);
+            setData(initialData.products);
+            setTotalPages(initialData.totalPages);
+        };
+
+        loadData();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [filters, currentPage]);
+
+    const applyFilters = async (filter: Filters) => {
+        const clearedFilters = { type: '', brand: '', model: '' };
+        setFilters(clearedFilters);
         setFilters(filter);
+        setCurrentPage(0);
+        const newData = await fetchProducts(filter, 0);
+        setData(newData.products);
+        setTotalPages(newData.totalPages);
     };
 
-    const clearFilters = () => {
-        setFilters({
-            type: "",
-            brand: "",
-            model: ""
-        });
+    const clearFilters = async () => {
+        const clearedFilters = { type: '', brand: '', model: '' };
+        setFilters(clearedFilters);
+        setCurrentPage(0);
+        const newData = await fetchProducts(clearedFilters, 0);
+        setData(newData.products);
+        setTotalPages(newData.totalPages);
     };
 
     const toPageTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    const { data, totalPages, currentPage, setCurrentPage } = useProductFetcher(filters);
+    };
 
     return (
         <div>
@@ -47,7 +153,7 @@ export default function Page() {
 
             <Reveal>
                 <>
-                    {(filters.type !== "" || filters.brand !== "" || filters.model !== "") ? (
+                    {(filters.type !== '' || filters.brand !== '' || filters.model !== '') ? (
                         <h2 className="text-lg font-notothai text-center text-gray-500 pt-3">{`ตัวกรองตอนนี้: ${filters.type} ${filters.brand} ${filters.model}`}</h2>
                     ) : (
                         <div></div>
@@ -76,46 +182,9 @@ export default function Page() {
             <Reveal>
                 <PaginateProduct totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
             </Reveal>
-            <div className="flex justify-center items-center" onClick={toPageTop} >
+            <div className="flex justify-center items-center" onClick={toPageTop}>
                 <FaCircleArrowUp className="w-8 h-8 text-blue-500 mt-5 border border-gray-300 rounded-full animate-bounce cursor-pointer" />
             </div>
         </div>
-    )
-}
-
-interface ProductCardProps {
-    name: string;
-    type: string;
-    brand: string;
-    car: string;
-    color: string
-    price: string;
-    image: string;
-}
-
-function ProductCard({ name, type, brand, car, color, price, image }: ProductCardProps) {
-    const markerColor = type === "อะไหล่ภายนอก"
-        ? "bg-red-500"
-        : type === "อะไหล่ภายใน"
-            ? "bg-blue-500"
-            : type === "อะไหล่ช่วงล่าง"
-                ? "bg-green-500"
-                : "bg-gray-500";
-
-    return (
-        <div className="flex flex-col items-center bg-slate-200 rounded-lg py-2 w-80 gap-1">
-            <img src={image} alt={name} className="w-52 h-72 object-contain my-2 flex-start" />
-            <div className={`flex flex-col items-center justify-between `}>
-                <h1 className={`text-xl font-notothai font-bold text-center ${!color && "py-3.5"}`}>
-                    {name} {color && <><br /><span className="text-md font-notothai">{color}</span></>}
-                </h1>
-                <p className="text-md font-notothai font-semibold text-center">{brand + " " + car}</p>
-                <p className="text-md font-notothai text-center flex items-center">
-                    <span className={`w-2 h-2 rounded-full mr-2 ${markerColor}`}></span>
-                    {type}
-                </p>
-                <p className="text-md font-notothai">{price} บาท</p>
-            </div>
-        </div>
-    )
+    );
 }

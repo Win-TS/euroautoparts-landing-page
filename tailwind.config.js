@@ -18,8 +18,7 @@ export default {
           'impact': ['Impact', 'sans-serif'],
           'inter': ['Inter', 'sans-serif'],
           'notothai': ['Noto Sans Thai', 'sans-serif'],
-          'lineseedsans': ['LINESeedSansTHRegular', 'sans-serif'],
-          'lineseedsans-bold': ['LINESeedSansTHBold', 'sans-serif'],
+          'lineseedsans': ['var(--font-lineseedsans)', 'sans-serif'],
         },
     },
     screens: {

@@ -41,9 +41,9 @@ import lazadaReview from '../../assets/testimonials/lazada-review.jpeg';
 import shopeeReview from '../../assets/testimonials/shopee-review.jpeg';
 import lazadaLogo from '../../assets/logo/lazada_logo.png';
 import shopeeLogo from '../../assets/logo/shopee_logo.png';
-import TestimonialSlider from "../components/animations/TestimonialSlider";
-import PhotoSlider from "../components/animations/PhotoSlider";
-import Reveal from "../components/animations/Reveal";
+import TestimonialSlider from "./animations/TestimonialSlider";
+import PhotoSlider from "./animations/PhotoSlider";
+import Reveal from "./animations/Reveal";
 
 export default function Testimonial() {
 
