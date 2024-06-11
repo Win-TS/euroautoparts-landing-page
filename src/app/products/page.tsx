@@ -1,11 +1,13 @@
+"use client"
+
 import { useState } from "react";
 import { FaCircleArrowUp } from "react-icons/fa6";
-import Reveal from "../animations/Reveal";
+import Reveal from "../components/animations/Reveal";
 import PaginateProduct from "../components/PaginateProduct";
 import ProductFilter from "../components/ProductFilter";
-import useProductFetcher from "../hooks/useProductFetcher";
+import useProductFetcher from "../../hooks/useProductFetcher";
 
-export default function Product() {
+export default function Page() {
     const [filters, setFilters] = useState({
         type: "",
         brand: "",
@@ -44,7 +46,7 @@ export default function Product() {
             <ProductFilter filters={filters} onApplyFilters={applyFilters} onClearFilters={clearFilters} />
 
             <Reveal>
-                <>  
+                <>
                     {(filters.type !== "" || filters.brand !== "" || filters.model !== "") ? (
                         <h2 className="text-lg font-notothai text-center text-gray-500 pt-3">{`ตัวกรองตอนนี้: ${filters.type} ${filters.brand} ${filters.model}`}</h2>
                     ) : (
@@ -74,8 +76,8 @@ export default function Product() {
             <Reveal>
                 <PaginateProduct totalPages={totalPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
             </Reveal>
-            <div  className="flex justify-center items-center" onClick={toPageTop} >
-                <FaCircleArrowUp className="w-8 h-8 text-blue-500 mt-5 border border-gray-300 rounded-full animate-bounce cursor-pointer"/>
+            <div className="flex justify-center items-center" onClick={toPageTop} >
+                <FaCircleArrowUp className="w-8 h-8 text-blue-500 mt-5 border border-gray-300 rounded-full animate-bounce cursor-pointer" />
             </div>
         </div>
     )
@@ -95,10 +97,10 @@ function ProductCard({ name, type, brand, car, color, price, image }: ProductCar
     const markerColor = type === "อะไหล่ภายนอก"
         ? "bg-red-500"
         : type === "อะไหล่ภายใน"
-        ? "bg-blue-500"
-        : type === "อะไหล่ช่วงล่าง"
-        ? "bg-green-500"
-        : "bg-gray-500";
+            ? "bg-blue-500"
+            : type === "อะไหล่ช่วงล่าง"
+                ? "bg-green-500"
+                : "bg-gray-500";
 
     return (
         <div className="flex flex-col items-center bg-slate-200 rounded-lg py-2 w-80 gap-1">

@@ -1,9 +1,11 @@
+"use client"
+
 import { useEffect } from "react";
-import Reveal from "../animations/Reveal";
+import Reveal from "../components/animations/Reveal";
 import { FaPhone, FaLine, FaFacebook, FaEnvelope } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
-export default function Contact() {
+export default function Page() {
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });

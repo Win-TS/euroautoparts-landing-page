@@ -1,4 +1,7 @@
 import type { Metadata } from "next"
+import "./globals.css"
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 
 export const metadata: Metadata = {
     title: "EuroAutoParts",
@@ -28,9 +31,12 @@ export default function RootLayout({
                 />
             </head>
             <body>
-                <div id="root">{children}</div>
+                <Navbar />
+                <div style={{ paddingTop: '77.32px' }}>
+                    {children}
+                    <Footer />
+                </div>
             </body>
         </html>
-
     )
 }
