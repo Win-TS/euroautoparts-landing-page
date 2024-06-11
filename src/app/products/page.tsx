@@ -112,7 +112,6 @@ export default function Page() {
         };
 
         loadData();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [filters, currentPage]);
 
     const applyFilters = async (filter: Filters) => {

@@ -1,14 +1,9 @@
 "use client"
 
-import { useEffect } from "react";
 import Reveal from "../components/animations/Reveal";
 import Accordion from "../components/Accordion";
 
 export default function Page() {
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
     const accordionIds = [
         {
             title: "มาตรฐานของสินค้าของที่ร้านเป็นอย่างไรบ้าง",

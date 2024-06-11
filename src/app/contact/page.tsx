@@ -1,15 +1,10 @@
 "use client"
 
-import { useEffect } from "react";
 import Reveal from "../components/animations/Reveal";
 import { FaPhone, FaLine, FaFacebook, FaEnvelope } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
 export default function Page() {
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
     return (
         <div className="bg-white">
             <div className="p-6 bg-gray-200">
