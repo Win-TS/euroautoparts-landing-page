@@ -16,7 +16,6 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className={`${lineFont.variable}`}>
-            <title>EuroAutoParts</title>
             <Head>
                 <title>
                     EuroAutoParts อะไหล่รถยุโรป BMW Benz MINI คุณภาพดี ราคาย่อมเยาว์
