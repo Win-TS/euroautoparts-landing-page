@@ -67,7 +67,7 @@ const benzModels: string[] = [
     "E-Coupe W207",
     "E-Coupe W238",
     "GLA W156",
-    "GLC W253",
+    "GLC X253",
     "GLK X204",
     "S-Class W220",
     "S-Class W221",
